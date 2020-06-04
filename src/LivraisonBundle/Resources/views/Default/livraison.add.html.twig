@@ -1,0 +1,39 @@
+{% extends 'baseback.html.twig' %}
+{% block title_page %}Affection d'une Livraison{% endblock %}
+{% block small_title %}Formulaire{% endblock %}
+{% block body %} 
+
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+      
+<div class="container">
+  <div class="row">
+  <div class="col-sm">   
+    </div>
+<div class="col-lg-6">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary text-center">Create</button>
+          </div>
+    {{ form_end(form) }}
+{{ form_errors(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('livraison_admin') }}">Retour a la liste des taches</a>
+        </li>
+    </ul>
+    </div>
+    <div class="col-sm">
+   
+    </div>
+    </div>
+    </div>
+{% endblock %}

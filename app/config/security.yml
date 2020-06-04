@@ -1,0 +1,27 @@
+security:
+   encoders:
+       FOS\UserBundle\Model\UserInterface: bcrypt
+
+   role_hierarchy:
+       ROLE_CLIENT:        ROLE_USER
+       ROLE_AGENT:       ROLE_USER
+       ROLE_USER:       ROLE_USER
+       ROLE_ADMIN:       ROLE_ADMIN
+       ROLE_SUPER_ADMIN: [ROLE_ADMIN,ROLE_ALLOWED_TO_SWITCH]
+
+   providers:
+       fos_userbundle:
+           id: fos_user.user_provider.username
+
+   firewalls:
+       main:
+           pattern: ^/
+           anonymous:    true
+           logout:  true
+           form_login:
+               provider: fos_userbundle
+               csrf_token_generator: security.csrf.token_manager
+           
+          
+
+  

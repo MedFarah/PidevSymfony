@@ -1,0 +1,53 @@
+
+{% extends 'baseback.html.twig' %}
+
+
+{% block content %}
+
+
+<div class="cy_event_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <h1 class="cy_heading">Upcoming Event</h1>
+            </div>
+        </div>
+
+        {% for evenement in evenements %}
+
+        <div class="row" id="row{{ evenement.id }}">
+            <div class="col-lg-4 col-md-6">
+                <div class="cy_event_box">
+                        <div class="cy_event_detail">
+                            <div class="cy_event_time">
+                                <ul>
+                                    <h2><a href="event_single.html">{{ evenement.nomevenements }}</a></h2>
+                                    <li><i><img src="{{ asset('assetsfront/images/svg/clock.svg') }}" alt="event time"></i>{{ evenement.datedebut|date('Y-m-d') }} PM to {{ evenement.datefin|date('Y-m-d') }} PM</li>
+                                    <li><i><img src="{{ asset('assetsfront/images/svg/map.svg') }}" alt="event address"></i>{{ evenement.lieuxeve }}</li>
+                                </ul>
+                            </div>
+                            <div class="card-title">
+                                <img src="{{ asset("velo/"~evenement.image)}}" style="width: 300px;height: 250px">
+                            </div>
+                            <div class="cy_event_date">
+                                <span class="ev_date">{{ evenement.dateeve|date('Y-m-d') }}</span>
+                                <span class="ev_yr">{{ evenement.dateeve|date('Y-m-d') }}</span>
+                            </div>
+                        </div>
+
+                    <div class="cy_event_data">
+                          <p>{{ evenement.descreptioneve }}</p>
+                        <a href="{{ path('add_Part',{'id':evenement.id}) }}" class="btn btn-primary" >Participer</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'baseback.html.twig' %}
+{% block title_page %}Informations sur la Tache
+{% endblock %}
+{% block small_title %}Détails  
+{% endblock %}
+
+{% block body %}
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+
+{# pass a string argument to get only the messages of that type #}
+{% for message in app.flashes('notice') %}
+    <div class="alert alert-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+	<!-- row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table">
+							<thead class="bg-danger text-white">
+								<tr>
+									<th>#Id</th>
+									<th>Titre</th>
+									<th>Etat</th>
+									<th>Agent_Id</th>
+									<th>Agent_Email</th>
+									<th>Client_Id</th>
+									<th>Client_Email</th>
+									<th>Prix</th>
+									<th>adresse</th>
+									<th>telephone</th>
+									<th>Date Creation</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>#{{ tache.id }}</td>
+									<td>{{ tache.titre }}</td>
+									<td>{{ tache.etat }}</td>
+									 <td><a href="{{ path('agent_view', { 'id': tache.agent.id }) }}">{{ tache.agent.id }}</a></td>
+									<td>{{ tache.agent.email }}
+									<td>{{ tache.client.id }}
+									<td>{{ tache.client.email }}
+									<td>{{ tache.prix }}
+										DT</td>
+									<td>{{ tache.adresse }}</td>
+									<td>{{ tache.tel }}</td>
+									<td>{{ tache.dateCreation|date('Y-m-d H:i:s') }}</td>
+
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

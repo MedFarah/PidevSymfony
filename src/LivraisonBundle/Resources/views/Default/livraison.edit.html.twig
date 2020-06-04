@@ -1,0 +1,29 @@
+{% extends 'baseback.html.twig' %}
+{% block title_page %}Editer Tache{% endblock %}
+{% block small_title %}Formulaire{% endblock %}
+
+{% block body %} 
+
+{# pass a string argument to get only the messages of that type #}
+{% for message in app.flashes('notice') %}
+    <div class="alert alert-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <div class="form-group text-center">
+        <input class="btn btn-primary text-center" type="submit" value="Edit" />
+        </div>
+    {{ form_end(edit_form) }}
+    
+{% endblock %}

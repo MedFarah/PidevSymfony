@@ -1,0 +1,115 @@
+{# src/AppBundle/Resources/views/layout-pdf.html.twig #}
+
+{% block body %}
+    {# Layout for PDF files #}
+    
+<!-- order table -->
+	<div class="row">
+		<div class="col-md-6">
+			<div class="card">
+				<div class="card-body">
+
+					<div class="table-responsive">
+						<table id="default_order" class="table table-striped table-bordered display no-wrap" style="width:40%">
+							<thead>
+								<tr>
+									<th>#ID</th>
+									<th>Titre</th>
+									<th>Etat</th>
+									<th>Prix</th>
+									<th>Agent_Id</th>
+									<th>Agent_Email</th>
+									<th>Client_Id</th>
+									<th>Client_Email</th>
+									<th>Date Creation</th>
+									<th>Action</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								{% for item in tache %}
+									<tr>
+										<td>
+											<a href="{{ path('livraison_view', { 'id': item.id }) }}">{{ item.id }}</td>
+										</td>
+										<td>{{ item.titre }}</td>
+                                        <td>{{ item.etat }}</td>
+										<td>{{ item.prix }}
+											DT</td>
+											  <td><a href="{{ path('agent_view', { 'id': item.agent.id }) }}">{{ item.agent.id }}</a></td>
+										    <td>{{ item.agent.email }}</td>
+											<td>{{ item.client.id }}</td>
+											<td>{{ item.client.email }}</td>
+										<td>{{ item.dateCreation|date('Y-m-d H:i:s') }}</td>
+										 
+										<td>
+											<div class)"row">
+												<button type="button" class="btn waves-effect waves-light btn-outline-info">
+													<a href="{{ path('livraison_view', { 'id': item.id }) }}">voir</a>
+												</button>
+												<button type="button" class="btn waves-effect waves-light btn-outline-info">
+													<a href="{{ path('livraison_edit', { 'id': item.id }) }}">edit</a>
+												</button>
+												<button type="button" class="btn waves-effect waves-light btn-outline-info">
+													<a href="{{ path('livraison_delete', { 'id': item.id }) }}">delete</a>
+												</button>
+											</div>
+										</td>
+									</tr>
+
+								{% endfor %}
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>#ID</th>
+									<th>Titre</th>
+                                    <th>Etat</th>
+									<th>Prix</th>
+									<th>Agent_Id</th>
+									<th>Client_Id</th>
+									<th>Client_Email</th>
+									<th>Date Creation</th>
+									<th>Action</th>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+	<button type="button" class=" btn btn-rounded btn-dark">
+													<a href="{{ path('pdf') }}">PDF</a>
+												</button>
+	</div>
+    {% block javascripts %}
+	<script src="{{ asset('assets/back/libs/jquery/dist/jquery.min.js') }}"></script>
+	<!-- Bootstrap tether Core JavaScript -->
+	<script src="{{ asset('assets/back/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+	<script src="{{ asset('assets/back/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	<!-- apps -->
+	<!-- apps -->
+	<script src="{{ asset('assets/back/dist/js/app-style-switcher.js') }}"></script>
+	<script src="{{ asset('assets/back/dist/js/feather.min.js') }}"></script>
+	<!-- slimscrollbar scrollbar JavaScript -->
+	<script src="{{ asset('assets/back/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
+	<script src="{{ asset('assets/back/extra-libs/sparkline/sparkline.js') }}"></script>
+	<!--Wave Effects -->
+	<!-- themejs -->
+	<!--Menu sidebar --><script src="{{ asset('assets/back/dist/js/sidebarmenu.js') }}"> </script>
+	<!--Custom JavaScript -->
+	<script src="{{ asset('assets/back/dist/js/custom.min.js') }}"></script>
+	<!--This page plugins -->
+	<script src="{{ asset('assets/back/extra-libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('assets/back/dist/js/pages/datatable/datatable-basic.init.js') }}"></script>
+{% endblock %}
+
+
+
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ absolute_url(asset('css/pdf.min.css')) }}" rel="stylesheet" type="text/css">
+{% endblock %}

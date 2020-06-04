@@ -1,0 +1,44 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <h1>Evenement creation</h1>
+
+    {{ form_start(form) }}
+    <div class="form-group row align-items-center">
+        <label class="col-3">Nom evenement</label>
+        {{ form_widget(form.nom_evenements, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">nombre participant</label>
+        {{ form_widget(form.nombre, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">date evenement</label>
+        {{ form_widget(form.dateeve, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">date debut</label>
+        {{ form_widget(form.datedebut, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3" type="time">date fin</label>
+        {{ form_widget(form.datefin, {'attr': {'type': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">lieux evenement</label>
+        {{ form_widget(form.lieuxeve, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">descreption du evenements</label>
+        {{ form_widget(form.descreptioneve, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+
+        <input type="submit" value="Create" class="btn btn-primary" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('evenements_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

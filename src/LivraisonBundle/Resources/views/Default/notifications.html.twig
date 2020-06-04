@@ -1,0 +1,43 @@
+{% extends 'baseback.html.twig' %}
+{% block title_page %}Admin
+{% endblock %}
+{% block small_title %}Notifications
+{% endblock %}
+
+{% block body %}
+
+	<div class="container-fluid">
+    <div class="card">
+		<ul class="list-style-none">
+			<li>
+				{% for notif in notificationss %}
+					<div
+						class="message-center notifications position-relative">
+						<!-- Message -->
+						<a href="#" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+							<div class="btn btn-danger rounded-circle btn-circle">
+								<i data-feather="airplay" class="text-white"></i>
+							</div>
+							<div class="w-75 d-inline-block v-middle pl-2">
+								<h6 class="message-title mb-0 mt-1">{{ notif.title }}</h6>
+								<span class="font-12 text-nowrap d-block text-muted">
+									{{ notif.description }}
+								</span>
+								<span class="font-12 text-nowrap d-block text-muted">{{ notif.date|date('Y-m-d H:i:s') }}</span>
+							</div>
+						</a>
+					</div>
+				</li>
+			{% else %}
+				<li>
+					<a class="nav-link pt-3 text-center text-dark" href="#">
+						<strong>Pas de Notifications</strong>
+						<i class="fa fa-angle-right"></i>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+        </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+deleteEventMobile:
+    path:     /deleteEventMobile/
+    defaults: { _controller: LivraisonBundle:Api:deleteEventMobile }
+
+EditEventMobile:
+    path:     /EditEventMobile/
+    defaults: { _controller: LivraisonBundle:Api:EditEventMobile }
+
+
+all:
+    path:     /livraison/all/{id}
+    defaults: { _controller: LivraisonBundle:Api:all }
+
+view:
+    path: /livraison/view/{id}
+    defaults: { _controller: LivraisonBundle:Api:view }
+    requirements: 
+       'id': '\d+'
+
+valider:
+    path:     /livraison/view/{id}/valider
+    defaults: { _controller: LivraisonBundle:Api:valider }
+    requirements: 
+       'id': '\d+'
+
+delete:
+    path:     livraison/view/{id}/delete
+    defaults: { _controller: LivraisonBundle:Api:delete }
+    requirements: 
+       'id': '\d+'
+
+add:
+    path:     reclamation/{titre}/{sujet}/{livraisonId}/{agent}/add/
+    defaults: { _controller: LivraisonBundle:Api:add }
+    requirements: 
+       'livraisonId': '\d+'
+       'agent': '\d+'
+
+
+edit:
+    path:     reclamation/{id}/{titre}/{sujet}/edit/
+    defaults: { _controller: LivraisonBundle:Api:edit }
+    requirements: 
+     'id': '\d+'
+
+deleteRec:
+    path:     reclamation/view/{id}/delete
+    defaults: { _controller: LivraisonBundle:Api:deleteRec }
+    requirements: 
+       'id': '\d+'
+       
+
+
+list:
+    path:     /reclamation/all/{id}
+    defaults: { _controller: LivraisonBundle:Api:list }
+
+reclamationCiew:
+    path: /reclamation/view/{id}
+    defaults: { _controller: LivraisonBundle:Api:Reclamationview }
+    requirements: 
+       'id': '\d+'
+
+statsview:
+    path: /stats/{id}
+    defaults: { _controller: LivraisonBundle:Api:Stats }
+    requirements: 
+       'id': '\d+'

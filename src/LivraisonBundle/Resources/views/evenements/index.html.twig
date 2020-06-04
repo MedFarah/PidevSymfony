@@ -1,0 +1,62 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <h1> liste Evenements</h1>
+
+    <div class="table-responsive">
+        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+            <thead>
+
+
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom_evenements</th>
+
+
+                <th scope="col">Nombre de participants</th>
+                <th scope="col">date evenements</th>
+                <th scope="col">date debut</th>
+                <th scope="col">date fin</th>
+
+                <th scope="col">Lieux evenements</th>
+                <th scope="col">Descreption evenements</th>
+                <th scope="col">Actions </th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for evenement in evenements %}
+                <tr>
+                    <td><a href="{{ path('evenements_show', { 'id': evenement.id }) }}">{{ evenement.id }}</a></td>
+                    <td>{{ evenement.nomevenements }}</td>
+                    <td>{{ evenement.nombre }}</td>
+                    <td>{% if evenement.dateeve %}{{ evenement.dateeve|date('Y-m-d') }}{% endif %}</td>
+                    <td>{% if evenement.datedebut %}{{ evenement.datedebut|date('Y-m-d') }}{% endif %}</td>
+
+                    <td>{% if evenement.datefin %}{{ evenement.datefin|date('Y-m-d') }}{% endif %}</td>
+
+                    <td>{{ evenement.lieuxeve }}</td>
+                    <td>{{ evenement.descreptioneve }}</td>
+                    <td>
+                        <ul>
+
+                                <a href="{{ path('evenements_edit', { 'id': evenement.id }) }}" type="button"
+                                class="btn waves-effect waves-light btn-primary">edit</a>
+
+                                <a href="{{ path('evenements_delete', { 'id': evenement.id }) }}" type="button"
+                                   class="btn waves-effect waves-light btn-primary">delete</a>
+                          
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+
+{% endblock %}

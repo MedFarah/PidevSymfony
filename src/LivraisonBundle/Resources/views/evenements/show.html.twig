@@ -1,0 +1,45 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table>
+        <tbody>
+        <div class="form-group row align-items-center">
+            <label class="col-3"> ID</label>
+            <div>{{ evenement.id }}</div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="col-3">Nom evenement</label>
+            <div>{{ evenement.nomevenements }}</div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="col-3">nombre participant</label>
+            <div>{{ evenement.nombre }}</div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="col-3">date evenement</label>
+            <div>{% if evenement.dateeve %}{{ evenement.dateeve|date('Y-m-d') }}{% endif %}</div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="col-3">lieux evenement</label>
+            <div>{{ evenement.lieuxeve }}</div>
+        </div>
+        <div class="form-group row align-items-center">
+            <label class="col-3">descreption du evenements</label>
+            <div>{{ evenement.descreptioneve }}</div>
+        </div>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('evenements_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('evenements_edit', { 'id': evenement.id }) }}">Edit</a>
+        </li>
+
+    </ul>
+{% endblock %}

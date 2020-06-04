@@ -1,0 +1,57 @@
+
+<ul id="notifications"
+								class="navbar-nav float-left mr-auto ml-3 pl-1"> <!-- Notification -->
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle pl-md-3 position-relative" href="javascript:void(0)" id="bell" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span>
+											<i data-feather="bell" class="svg-icon"></i>
+										</span>
+										<span class="badge badge-primary notify-no rounded-circle">{{ length }}</span>
+									</a>
+									<div class="dropdown-menu dropdown-menu-left mailbox animated bounceInDown">
+										<ul class="list-style-none">
+											<li>
+												{% for notif in notificationss %}
+													<div
+														class="message-center notifications position-relative">
+														<!-- Message -->
+														<a href="#" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+															<div class="btn btn-danger rounded-circle btn-circle">
+																<i data-feather="airplay" class="text-white"></i>
+															</div>
+															<div class="w-75 d-inline-block v-middle pl-2">
+																<h6 class="message-title mb-0 mt-1">{{ notif.title }}</h6>
+																<span class="font-12 text-nowrap d-block text-muted">
+																	{{ notif.description }}
+																</span>
+																<span class="font-12 text-nowrap d-block text-muted">{{ notif.date|date('Y-m-d H:i:s') }}</span>
+															</div>
+														</a>
+
+													</div>
+												</li>
+											{% else %}
+												<li>
+													<a class="nav-link pt-3 text-center text-dark" href="#">
+														<strong>Pas de Notifications</strong>
+														<i class="fa fa-angle-right"></i>
+													</a>
+													</li>
+												{% endfor %}
+											<li>
+													<a class="nav-link pt-3 text-center text-dark" href="{{ path('notifications') }}">
+														<strong>voir tous les Notifications</strong>
+														<i class="fa fa-angle-right"></i>
+													</a>
+													</li>
+											</ul>
+										</div>
+									</li>
+									<!-- End Notification -->
+								<!-- ============================================================== -->
+									<!-- create new -->
+									<!-- ============================================================== -->
+								</li>
+						
+
+							</ul>
