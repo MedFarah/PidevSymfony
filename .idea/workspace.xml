@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="&quot;rec add&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LivraisonBundle/Resources/views/Default/reclamation.admin.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LivraisonBundle/Resources/views/Default/reclamation.agent.html.twig" afterDir="false" />
+    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/untitled4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/untitled4.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Entity/reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Entity/reclamations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Repository/reclamationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Repository/reclamationsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/AppBundle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -136,17 +134,17 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\ASUS\Desktop\Esprit\SEMESTRE II\sprint3\pi-project\src\AppBundle" />
-      <recent name="C:\Users\ASUS\Desktop\Esprit\SEMESTRE II\sprint3\pi-project\src" />
-      <recent name="C:\Users\ASUS\Desktop\Esprit\SEMESTRE II\sprint3\pi-project\web" />
-      <recent name="C:\wamp64\www\untitled4\app\Resources\views\default" />
-      <recent name="C:\wamp64\www\untitled4\app\Resources\views" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\pi-project\web\uploads\photos" />
       <recent name="C:\wamp64\www\untitled4\web\assets" />
       <recent name="C:\wamp64\www\untitled4\src\EvenmentsBundle\Resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\pi-project\src" />
+      <recent name="C:\Users\ASUS\Desktop\Esprit\SEMESTRE II\sprint3\pi-project\src\AppBundle" />
+      <recent name="C:\Users\ASUS\Desktop\Esprit\SEMESTRE II\sprint3\pi-project\src" />
+      <recent name="C:\Users\ASUS\Desktop\Esprit\SEMESTRE II\sprint3\pi-project\web" />
+      <recent name="C:\wamp64\www\untitled4\app\Resources\views\default" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -165,6 +163,16 @@
       <command value="s doctrine:schema:update" />
       <command value="php bin/console assetic:dump --env=prod --no-debug" />
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="AppKernel.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/app/AppKernel.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.AppKernel.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -198,8 +206,16 @@
       <workItem from="1591278557847" duration="3477000" />
       <workItem from="1591292470390" duration="741000" />
       <workItem from="1591711954989" duration="439000" />
-      <workItem from="1591789526804" duration="1658000" />
+      <workItem from="1591789526804" duration="8529000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;rec add&quot;">
+      <created>1591791744351</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591791744351</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,14 +226,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="&quot;rec add&quot;" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="519" y="119" key="#AppKernel.php" timestamp="1591796211761">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="519" y="119" key="#AppKernel.php/0.0.1600.860@0.0.1600.860" timestamp="1591796211761" />
     <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1584901758733">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1584901758733" />
-    <state x="384" y="25" key="CommitChangelistDialog2" timestamp="1591791379529">
+    <state x="384" y="25" key="CommitChangelistDialog2" timestamp="1591791742637">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="384" y="25" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591791379529" />
+    <state x="384" y="25" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591791742637" />
     <state x="407" y="243" key="ComposerCompositePathDialog" timestamp="1584898888342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -255,6 +275,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="450" y="267" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1584898865151" />
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1591791768812">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1591791768812" />
     <state x="444" y="223" key="com.intellij.ide.util.TipDialog" timestamp="1591711958435">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -265,5 +289,9 @@
     </state>
     <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1584965256224" />
     <state x="397" y="191" width="788" height="800" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1591281650006" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1591798385071">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1591798385071" />
   </component>
 </project>

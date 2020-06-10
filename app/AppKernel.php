@@ -4,6 +4,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
+
 class AppKernel extends Kernel
 {
     public function registerBundles()
@@ -18,6 +19,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new AppBundle\AppBundle(),
+            new GPBundle\GPBundle(),
             new FOS\UserBundle\FOSUserBundle(), 
             new LivraisonBundle\LivraisonBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
@@ -25,6 +27,7 @@ class AppKernel extends Kernel
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new ReclamationBundle\ReclamationBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
 
 
 

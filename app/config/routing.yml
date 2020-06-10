@@ -10,6 +10,10 @@ livraison:
     resource: "@LivraisonBundle/Resources/config/routing.yml"
     prefix:   /
 
+gp:
+    resource: "@GPBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
