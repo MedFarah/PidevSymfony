@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use LivraisonBundle\Entity\reclamations;
 use LivraisonBundle\LivraisonBundle;
 
 class DefaultController extends Controller
@@ -57,6 +58,8 @@ class DefaultController extends Controller
 
         return $this->render('@Livraison/Default/notifications.html.twig', array('notificationss' => $notificationsa));
     }
+
+
 
 
     public function generate_pdfAction(Request $request)
@@ -151,13 +154,37 @@ class DefaultController extends Controller
         ));
     }
 
+
+
+    /**
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function adminRecAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tache = $em->getRepository('LivraisonBundle:reclamations')->findAll();
+        return $this->render('@Livraison/Default/reclamation.admin.html.twig', array('tache' => $tache));
+    }
+
+    /**
+     * @Security("has_role('ROLE_AGENT')")
+     */
+    public function agentRecAction()
+    {
+        $user = $this->getUser();
+        $user->getId();
+        $em = $this->getDoctrine()->getManager();
+        $tache = $em->getRepository('LivraisonBundle:reclamations')->findBy(array('agent' => $user->getId()));
+        return $this->render('@Livraison/Default/reclamation.agent.html.twig', array('tache' => $tache));
+    }
+
+
+
     /**
      * @Security("has_role('ROLE_ADMIN')")
      */
     public function admindashboardAction()
     {
-        
-   
         $etat = "en cours";
         $etats = "Livrée";
         $em = $this->getDoctrine()->getManager();
@@ -215,22 +242,22 @@ class DefaultController extends Controller
             ->select('count(d.id)')
             ->getQuery()
             ->getSingleScalarResult();
-            $ob = new Highchart();
-            $ob->chart->renderTo('piechart');
-            $ob->title->text('Gestion de Livraison Chart');
-            $ob->plotOptions->pie(array(
-                'allowPointSelect'  => true,
-                'cursor'    => 'pointer',
-                'dataLabels'    => array('enabled' => false),
-                'showInLegend'  => true
-            ));
-            $percentageCourss  = number_format($percentageCours,1);
-            $percentagelivs =  number_format($percentageliv,1);
-            $data = array(
-                array('Livrées', $percentageCours),
-                array('En Cours', $percentageliv)
-            );
-            $ob->series(array(array('type' => 'pie','name' => 'Pourcentage', 'data' => $data)));
+        $ob = new Highchart();
+        $ob->chart->renderTo('piechart');
+        $ob->title->text('Gestion de Livraison Chart');
+        $ob->plotOptions->pie(array(
+            'allowPointSelect'  => true,
+            'cursor'    => 'pointer',
+            'dataLabels'    => array('enabled' => false),
+            'showInLegend'  => true
+        ));
+        $percentageCourss  = number_format($percentageCours,1);
+        $percentagelivs =  number_format($percentageliv,1);
+        $data = array(
+            array('Livrées', $percentageCours),
+            array('En Cours', $percentageliv)
+        );
+        $ob->series(array(array('type' => 'pie','name' => 'Pourcentage', 'data' => $data)));
 
         return $this->render('@Livraison/Default/statistiques.html.twig', array('numTot' => $totalLivraison, 'numCours' => $queryCours, 'numLiv' => $queryLiv, 'numAgt' => $queryagent, 'numCl' => $queryclient, 'percliv' => $percentageliv, 'perccours' => $percentageCours, 'chart' => $ob));
     }
@@ -286,6 +313,25 @@ class DefaultController extends Controller
         $tache = $em->getRepository('LivraisonBundle:Livraison')->findBy(array('agent' => $user->getId()));
         return $this->render('@Livraison/Default/livraison.agent.html.twig', array('tache' => $tache));
     }
+
+
+    public function reclamationdeleteAction(reclamations $tache, Request $request)
+    {
+        $id = $request->get('id');
+        $em = $this->getDoctrine()->getManager();
+        $tache = $em->getRepository('LivraisonBundle:reclamations')->find($id);
+        $em->remove($tache);
+        $em->flush();
+        $request->getSession()->getFlashBag()->add('success', 'Tache bien supprimée.');
+        return $this->redirectToRoute('reclamation_admin');
+    }
+
+
+
+
+
+
+
     /**
      * @Security("has_role('ROLE_ADMIN')")
      */
@@ -399,6 +445,18 @@ class DefaultController extends Controller
     {
         return $this->render('@Livraison/Default/agent.add.html.twig');
     }
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * @Security("has_role('ROLE_ADMIN')")
      */

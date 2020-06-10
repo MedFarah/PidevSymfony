@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="" />
+    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="&quot;rec add&quot;">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LivraisonBundle/Resources/views/Default/reclamation.admin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LivraisonBundle/Resources/views/Default/reclamation.agent.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Entity/reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Entity/reclamations.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Repository/reclamationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Repository/reclamationsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LivraisonBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/LivraisonBundle/Resources/config/routing.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +21,9 @@
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="2280878a-c251-4387-bd20-4689e09a4684" />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -105,6 +117,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1ZU6aGZh1RPdFUoy7NQpcfW4tp7" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -183,18 +196,28 @@
       <workItem from="1591010675481" duration="3599000" />
       <workItem from="1591253148656" duration="1154000" />
       <workItem from="1591278557847" duration="3477000" />
-      <workItem from="1591292470390" duration="295000" />
+      <workItem from="1591292470390" duration="741000" />
+      <workItem from="1591711954989" duration="439000" />
+      <workItem from="1591789526804" duration="1658000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;rec add&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;rec add&quot;" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1584901758733">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1584901758733" />
+    <state x="384" y="25" key="CommitChangelistDialog2" timestamp="1591791379529">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="384" y="25" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591791379529" />
     <state x="407" y="243" key="ComposerCompositePathDialog" timestamp="1584898888342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -232,11 +255,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="450" y="267" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1584898865151" />
-    <state x="444" y="223" key="com.intellij.ide.util.TipDialog" timestamp="1591292474158">
+    <state x="444" y="223" key="com.intellij.ide.util.TipDialog" timestamp="1591711958435">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1584965204671" />
-    <state x="444" y="223" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1591292474158" />
+    <state x="444" y="223" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1591711958435" />
     <state x="397" y="191" width="788" height="800" key="run.anything.popup" timestamp="1591281650006">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

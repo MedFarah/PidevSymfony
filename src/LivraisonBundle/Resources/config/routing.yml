@@ -1,117 +1,132 @@
 accueil:
-    path:     /
-    defaults: { _controller: LivraisonBundle:Default:index }
+  path:     /
+  defaults: { _controller: LivraisonBundle:Default:index }
 
 
 pdf:
-    path:     /pdf
-    defaults: { _controller: LivraisonBundle:Default:generate_pdf }
+  path:     /pdf
+  defaults: { _controller: LivraisonBundle:Default:generate_pdf }
 
 pdfa:
-    path:     /pdf/agent
-    defaults: { _controller: LivraisonBundle:Default:generate_pdfa }
-    
+  path:     /pdf/agent
+  defaults: { _controller: LivraisonBundle:Default:generate_pdfa }
+
 pdfs:
-    path:     /pdfs
-    defaults: { _controller: LivraisonBundle:Default:generate_pdfs }
+  path:     /pdfs
+  defaults: { _controller: LivraisonBundle:Default:generate_pdfs }
 
 notifications:
-    path:     /notifications/view
-    defaults: { _controller: LivraisonBundle:Default:seeAll }
+  path:     /notifications/view
+  defaults: { _controller: LivraisonBundle:Default:seeAll }
+
 
 
 livraison_admin:
-    path:     /livraison-admin/view
-    defaults: { _controller: LivraisonBundle:Default:adminlist }
+  path:     /livraison-admin/view
+  defaults: { _controller: LivraisonBundle:Default:adminlist }
+
+reclamation_admin:
+  path:     /reclamation-admin/view
+  defaults: { _controller: LivraisonBundle:Default:adminRec }
+
+reclamation_delete:
+  path:     /reclamation-admin/view/{id}/delete
+  defaults: { _controller: LivraisonBundle:Default:reclamationdelete }
+  requirements:
+    'id': '\d+'
+
+reclamation_agent:
+  path:     /reclamation-agent/view
+  defaults: { _controller: LivraisonBundle:Default:agentRec }
 
 statistiques_admin:
-    path:     /statistiques-admin/view
-    defaults: { _controller: LivraisonBundle:Default:admindashboard }
+  path:     /statistiques-admin/view
+  defaults: { _controller: LivraisonBundle:Default:admindashboard }
 
 livraison_agent:
-    path:     /livraison-agent/view
-    defaults: { _controller: LivraisonBundle:Default:agenttaches }
+  path:     /livraison-agent/view
+  defaults: { _controller: LivraisonBundle:Default:agenttaches }
 
 livraison_add:
-    path:     /livraison/new
-    defaults: { _controller: LivraisonBundle:Default:add }
+  path:     /livraison/new
+  defaults: { _controller: LivraisonBundle:Default:add }
 
 livraison_valider:
-    path:     /livraison/view{id}/valider
-    defaults: { _controller: LivraisonBundle:Default:valider }
-    requirements: 
-       'id': '\d+'
+  path:     /livraison/view{id}/valider
+  defaults: { _controller: LivraisonBundle:Default:valider }
+  requirements:
+    'id': '\d+'
 
-livraison_view: 
-    path: /livraison/view/{id}
-    defaults: { _controller: LivraisonBundle:Default:view }
-    requirements: 
-       'id': '\d+'
+livraison_view:
+  path: /livraison/view/{id}
+  defaults: { _controller: LivraisonBundle:Default:view }
+  requirements:
+    'id': '\d+'
 
 livraison_edit:
-    path:     livraison/view/{id}/edit
-    defaults: { _controller: LivraisonBundle:Default:livraisonedit }
-    requirements: 
-       'id': '\d+'
+  path:     livraison/view/{id}/edit
+  defaults: { _controller: LivraisonBundle:Default:livraisonedit }
+  requirements:
+    'id': '\d+'
 livraison_delete:
-    path:     livraison/view/{id}/delete
-    defaults: { _controller: LivraisonBundle:Default:livraisondelete }
-    requirements: 
-       'id': '\d+'
+  path:     livraison/view/{id}/delete
+  defaults: { _controller: LivraisonBundle:Default:livraisondelete }
+  requirements:
+    'id': '\d+'
 
 agent_add:
-    path:     /agent/new
-    defaults: { _controller: LivraisonBundle:Default:agentadd }
+  path:     /agent/new
+  defaults: { _controller: LivraisonBundle:Default:agentadd }
 
 agent_list:
-    path:     /agent/view
-    defaults: { _controller: LivraisonBundle:Default:agentlist }
+  path:     /agent/view
+  defaults: { _controller: LivraisonBundle:Default:agentlist }
 
 agent_edit:
-    path:     /agent/view/{id}/edit
-    defaults: { _controller: LivraisonBundle:Default:agentedit }
+  path:     /agent/view/{id}/edit
+  defaults: { _controller: LivraisonBundle:Default:agentedit }
 
 admin_edit:
-    path:     /admin/view/{id}/edit
-    defaults: { _controller: LivraisonBundle:Default:adminedit }
-   
+  path:     /admin/view/{id}/edit
+  defaults: { _controller: LivraisonBundle:Default:adminedit }
+
 agent_delete:
-    path:     /agent/view/{id}/delete
-    defaults: { _controller: LivraisonBundle:Default:agentdelete }
-    requirements: 
-       'id': '\d+'
+  path:     /agent/view/{id}/delete
+  defaults: { _controller: LivraisonBundle:Default:agentdelete }
+  requirements:
+    'id': '\d+'
 
-agent_view: 
-    path: /agent/view/{id}
-    defaults: { _controller: LivraisonBundle:Default:agentview }
-    requirements: 
-       'id': '\d+'
+agent_view:
+  path: /agent/view/{id}
+  defaults: { _controller: LivraisonBundle:Default:agentview }
+  requirements:
+    'id': '\d+'
 
-client_view: 
-    path: /client/view/{id}
-    defaults: { _controller: LivraisonBundle:Default:clientview }
-    requirements: 
-       'id': '\d+'
+client_view:
+  path: /client/view/{id}
+  defaults: { _controller: LivraisonBundle:Default:clientview }
+  requirements:
+    'id': '\d+'
 
 
 fos_user:
-   resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+  resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
 fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+  resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+  prefix: /profile
 
 fos_user_register:
-    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /register
-    
+  resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+  prefix: /register
+
 fos_user_resetting:
-    resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /resetting
+  resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+  prefix: /resetting
 
 fos_user_change_password:
-    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+  resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+  prefix: /profile

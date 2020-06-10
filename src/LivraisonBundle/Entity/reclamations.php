@@ -7,10 +7,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * reclamation
  *
- * @ORM\Table(name="reclamation")
- * @ORM\Entity(repositoryClass="LivraisonBundle\Repository\reclamationRepository")
+ * @ORM\Table(name="reclamations")
+ * @ORM\Entity(repositoryClass="LivraisonBundle\Repository\reclamationsRepository")
  */
-class reclamation
+class reclamations
 {
     /**
      * @var int
@@ -35,21 +35,21 @@ class reclamation
      */
     private $sujet;
 
-     /**
+    /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="dateCreation", type="datetime")
      *  @Assert\DateTime()
      */
     private $dateCreation;
 
-     /**
+    /**
      * @ORM\ManyToOne(targetEntity="LivraisonBundle\Entity\Livraison")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $livraison;
 
-      /**
+    /**
      * @ORM\ManyToOne(targetEntity="LivraisonBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
@@ -134,7 +134,7 @@ class reclamation
         return $this;
     }
 
-     /**
+    /**
      * @return \DateTime
      */
     public function getDateCreation()
@@ -155,4 +155,3 @@ class reclamation
         return $this->sujet;
     }
 }
-
