@@ -1,0 +1,45 @@
+gp_homepage:
+    path:     /base
+    defaults: { _controller: GPBundle:Default:base}
+
+
+gp_showpage:
+    path:    /show
+    defaults: { _controller: GPBundle:Default:index}
+
+produit_index:
+    path:   /products
+    defaults: { _controller: GPBundle:Produit:index}
+
+produit_show:
+    path: /show/{id}
+    defaults: { _controller: GPBundle:Produit:show}
+
+produit_new:
+    path: /new
+    defaults: { _controller: GPBundle:Produit:new}
+
+produit_edit:
+    path: /edit
+    defaults: { _controller: GPBundle:Produit:edit}
+
+produit_modifier:
+    path: /modifier/{id}
+    defaults: { _controller: GPBundle:Produit:modifier}
+
+produit_delete:
+    path: /delete/{id}
+    defaults: { _controller: GPBundle:Produit:delete}
+
+
+produit_client:
+    path: /
+    defaults: { _controller: GPBundle:Produit:client}
+
+produit_recherche:
+    path: /recherche
+    defaults: { _controller: GPBundle:Produit:recherche}
+
+produit_tri:
+    path: /tri
+    defaults: { _controller: GPBundle:Produit:tri}

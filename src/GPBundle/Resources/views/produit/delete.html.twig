@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            {{ form_start(form) }}
+            <div class="form-group">
+
+                {{ form_widget(form.nom, { 'attr' : { 'class': 'form-control', 'placeholder': 'Product Name' }}) }}
+                <div class="text-danger" id="emptyNom" style="display: none">Required</div>
+
+                {{ form_widget(form.description, { 'attr' : { 'class': 'form-control', 'placeholder': 'Product Details' }}) }}
+                <div class="text-danger" id="emptyDescription" style="display: none">Required</div>
+
+                {{ form_widget(form.couleur, { 'attr' : { 'class': 'form-control', 'placeholder': 'Product Color' }}) }}
+                <div class="text-danger" id="emptyCouleur" style="display: none">Required</div>
+
+                {{ form_widget(form.prix, { 'attr' : { 'class': 'form-control', 'placeholder': 'Price' }}) }}
+                <div class="text-danger" id="emptyPrix" style="display: none">Required</div>
+
+                {{ form_widget(form.prixt, { 'attr' : { 'class': 'form-control', 'placeholder': 'Price TTC' }}) }}
+                <div class="text-danger" id="emptyPrixt" style="display: none">Required</div>
+
+                {{ form_widget(form.remise, { 'attr' : { 'class': 'form-control', 'placeholder': 'Discount' }}) }}
+                <div class="text-danger" id="emptyRemise" style="display: none">Required</div>
+
+                {{ form_widget(form.prixr, { 'attr' : { 'class': 'form-control', 'placeholder': 'Discount Price' }}) }}
+                <div class="text-danger" id="emptyPrixr" style="display: none">Required</div>
+
+
+            </div>
+            {{ form_end(form) }}
+            <input type="submit" id="btn" value="Delete" class="btn btn-primary" />
+
+        </div>
+
+        <div class="col-md-2"></div>
+
+    </div>
+    <a href="{{ path('produit_index') }}">Back to the list</a>
+    <script>
+
+        $(document).ready(()=>{
+
+            $('#btn').click(($event)=> {
+
+                var nom = $('#gpbundle_produit_nom').val();
+                if (nom == "") {
+                    $('#emptyNom').css("display", "block")
+                    $event.preventDefault();
+                } else {
+                    $('#emptyNom').css("display", "none")
+                }
+                console.log('nom', nom);
+
+
+                var description = $('#gpbundle_produit_description').val();
+                if(description == ""){
+                    $('#emptyDescription').css("display","block")
+                    $event.preventDefault();
+                }else{
+                    $('#emptyDescription').css("display","none")
+                }
+                console.log('description',description);
+
+
+
+                var couleur = $('#gpbundle_produit_couleur').val();
+                if(couleur == ""){
+                    $('#emptyCouleur').css("display","block")
+                    $event.preventDefault();
+                }else{
+                    $('#emptyCouleur').css("display","none")
+                }
+                console.log('couleur',couleur);
+
+
+                var prix = $('#gpbundle_produit_prix').val();
+                if(prix == ""){
+                    $('#emptyPrix').css("display","block")
+                    $event.preventDefault();
+                }else{
+                    $('#emptyPrix').css("display","none")
+                }
+                console.log('prix',prix);
+
+
+                var prixt = $('#gpbundle_produit_prixt').val();
+                if(prixt == ""){
+                    $('#emptyPrixt').css("display","block")
+                    $event.preventDefault();
+                }else{
+                    $('#emptyPrixt').css("display","none")
+                }
+                console.log('prixt',prixt);
+
+
+                var remise = $('#gpbundle_produit_remise').val();
+                if(remise == ""){
+                    $('#emptyRemise').css("display","block")
+                    $event.preventDefault();
+                }else{
+                    $('#emptyRemise').css("display","none")
+                }
+                console.log('remise',remise);
+
+
+                var prixr = $('#gpbundle_produit_prixr').val();
+                if(prixr == ""){
+                    $('#emptyPrixr').css("display","block")
+                    $event.preventDefault();
+                }else{
+                    $('#emptyPrixr').css("display","none")
+                }
+                console.log('prixr',prixr);
+            })})
+    </script>
+{% endblock %}

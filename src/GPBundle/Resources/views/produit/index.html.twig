@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}  
+  <div class="navigation">
+    {{ knp_pagination_render(produits) }}
+
+    </div>
+    
+        <table class="table table-hover table-responsive">
+    <thead>
+    <th >Product Picture</th>
+    <th >Product Name</th>
+    <th aria-label="Position: activate to sort column ascending" aria-sort="descending">Product Details</th>
+    <th>Product Color</th>
+    <th>Product Price</th>
+    <th>Price TTC</th>
+    <th>Discount</th>
+    <th>Discount Price</th>
+    <th>Mark</th>
+    <th>Action</th>
+    </thead>
+    {% for produit in produits %}
+
+            <tr>
+               <td>   <img class="card-img-top" src="http://localhost/GP1/web/velo/{{produit.image}}" alt="Card image cap"></td>
+
+                <td>{{ produit.nom }}</td>
+
+                <td>{{ produit.description }}</td>
+
+                <td>{{ produit.couleur }}</td>
+
+                <td>{{ produit.prix }}</td>
+
+                <td>{{ produit.prixt }}</td>
+
+                <td>{{ produit.remise }}</td>
+
+                <td>{{ produit.prixr }}</td>
+
+                <td>{{ produit.entreprise.marque }}</td>
+                <td>
+                   
+                    <a href="{{ path('produit_modifier', { 'id': produit.id }) }}"> <i class="fa fa-edit"></i> </a>
+                    <a class="text-danger" href="{{ path('produit_delete', { 'id': produit.id }) }}"> <i class="fa fa-trash"></i> </a>
+                </td>
+
+
+            </tr>
+
+    {% endfor %}
+
+    </table>
+   <div class="navigation">
+    {{ knp_pagination_render(produits) }}
+
+    </div>
+
+{% endblock %}
+

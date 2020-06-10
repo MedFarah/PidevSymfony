@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="table-responsive">
+        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+            <thead>
+            <th aria-label="Position: activate to sort column ascending" aria-sort="descending">Product Name</th>
+            <th>Product Details</th>
+            <th>Product Color</th>
+            <th>Product Price</th>
+            <th>Price TTC</th>
+            <th>Discount</th>
+            <th>Discount Price</th>
+            <th>Action</th>
+            </thead>
+            {% for produit in produits %}
+
+                <tr>
+
+
+                    <td>{{ produit.nom }}</td>
+
+                    <td>{{ produit.description }}</td>
+
+                    <td>{{ produit.couleur }}</td>
+
+                    <td>{{ produit.prix }}</td>
+
+                    <td>{{ produit.prixt }}</td>
+
+                    <td>{{ produit.remise }}</td>
+
+                    <td>{{ produit.prixr }}</td>
+                    <td><a href="{{ path('produit_modifier') }}">Edit Article</a></td>
+
+
+                </tr>
+
+            {% endfor %}
+
+        </table>
+    </div>
+
+{% endblock %}
+
