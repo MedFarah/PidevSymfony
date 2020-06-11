@@ -1,0 +1,41 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Liste des chefs sites</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-info text-white">
+                            <tr>
+                                <th>id</th>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th class="text-center">numero site</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody class="border border-info">
+                            {% for s in Chefsite %}
+                                <tr>
+                                    <td>{{ s.id }}</td>
+                                    <td>{{ s.nom }}</td>
+                                    <td>{{ s.prenom }}</td>
+                                    <td class="border-top-0 text-center px-2 py-4">{{ s.numerosite }}</td>
+                                    <td class="border-top-0 text-center px-2 py-4">
+                                        <button type="button" class="btn waves-effect waves-light btn-outline-info">
+                                            <a href="{{ path('location_Chefsite_delete', { 'idclient': s.id }) }}">Downgrade to Client</a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
