@@ -1,0 +1,19 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+    <div class="form-group row align-items-center">
+        <label class="col-3">Emplacement</label>
+        {{ form_widget(form.emplacement, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">Longitude</label>
+        {{ form_widget(form.longitude, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">Latitude</label>
+        {{ form_widget(form.latitude, {'attr': {'class': 'form-control col'}}) }}
+    </div>
+    <input type="submit" value="Ajouter site" class="btn btn-primary" />
+    {{ form_end(form) }}
+{% endblock body %}

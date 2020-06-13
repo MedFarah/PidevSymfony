@@ -1,0 +1,78 @@
+#################WEB########################
+location_site_ajout:
+    path:     /site/ajout
+    defaults: { _controller: LocationBundle:Site:ajoutSite }
+
+location_site_affichage:
+    path:     /site/affichage
+    defaults: { _controller: LocationBundle:Site:afficherSite }
+
+location_site_delete:
+    path:     /site/supp/{id}
+    defaults: { _controller: LocationBundle:Site:suppSite }
+    requirements:
+        'id': '\d+'
+#******************************************************
+location_client_affichage:
+    path:     /chefsite/ajout
+    defaults: { _controller: LocationBundle:ChefSite:afficherClient }
+
+location_client_getone:
+    path:     /getclient/{id}
+    defaults: { _controller: LocationBundle:ChefSite:getClient }
+
+location_Chefsite_ajout:
+    path:     /chefsite/ajout/{id}
+    defaults: { _controller: LocationBundle:ChefSite:UpgradetoChefSite }
+
+location_Chefsite_affichage:
+    path:     /chefsite/affichage
+    defaults: { _controller: LocationBundle:ChefSite:afficherChefSite }
+
+location_Chefsite_delete:
+    path:     /chefsite/supp/{idclient}
+    defaults: { _controller: LocationBundle:ChefSite:downgradetoClient }
+#******************************************************
+location_type_affichage:
+    path:     /type/affichage
+    defaults: { _controller: LocationBundle:Type:afficherType }
+
+location_type_delete:
+    path:     /type/supp/{id}
+    defaults: { _controller: LocationBundle:Type:suppType }
+
+location_type_ajout:
+    path:     /type/ajout
+    defaults: { _controller: LocationBundle:Type:ajoutType }
+#******************************************************
+
+location_retour_affichage:
+    path:     /retour
+    defaults: { _controller: LocationBundle:Retour:affichageRetour }
+
+#******************************************************
+
+location_velo_louer:
+    path:     /louer
+    defaults: { _controller: LocationBundle:DetailLocation:louerVelo }
+
+location_velo_supprimer:
+    path:     /supprimer
+    defaults: { _controller: LocationBundle:DetailLocation:suppLocation }
+
+location_velo_update:
+    path:     /update
+    defaults: { _controller: LocationBundle:DetailLocation:updateLocation }
+#******************************************************
+location_homepage:
+    path:     /
+    defaults: { _controller: LocationBundle:Default:index }
+#******************************************************
+#####MOBILE#################
+locationmobile_login:
+    path:     /loginMobile/{username}/{password}
+    defaults: { _controller: LocationBundle:ApiMobile:loginMobile }
+
+locationmobile_getimage:
+    path:     /loginMobile/{username}/{password}
+    defaults: { _controller: LocationBundle:ApiMobile:loginMobile }

@@ -1,0 +1,100 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <h4 class="card-title">Liste des retours</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap v-middle mb-0">
+                            <tr class="border-0">
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">id</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">id location</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center"> Retard </th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center"> Endommagé </th>
+                            </tr>
+                            <tbody>
+                            {% for lr in listeRetour %}
+                                <tr>
+                                    <td class="border-top-0 text-center px-2 py-4">
+                                        <div class="">
+                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">{{ lr.id }} </h5>
+                                        </div>
+                                    </td>
+                                    <td class="border-top-0 text-center px-2 py-4">{{ lr.idLocation.id }}</td>
+                                    <td class="border-top-0 text-center px-2 py-4">
+                                        {% if lr.retard == '0' %}
+                                            <i class="fa fa-circle text-success font-12" data-toggle="tooltip" data-placement="top" title="" data-original-title="à temps"></i>
+                                        {% else %}
+                                            <i class="fa fa-circle text-danger font-12" data-toggle="tooltip" data-placement="top" title="" data-original-title="en retard"></i>
+                                        {% endif %}
+                                    </td>
+                                    <td class="border-top-0 px-2 py-4 font-14 text-center">
+                                        {% if lr.etat == '0' %}
+                                            <i class="fa fa-circle text-success font-12" data-toggle="tooltip" data-placement="top" title="" data-original-title="Bonne etat"></i>
+                                        {% else %}
+                                            <i class="fa fa-circle text-danger font-12" data-toggle="tooltip" data-placement="top" title="" data-original-title="Endommagée"></i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <h4 class="card-title">Retour location</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap v-middle mb-0">
+                            <tr class="border-0">
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center"></th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center"></th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center"> Retard </th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center"> Endommagé </th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center"></th>
+                            </tr>
+                            <tbody>
+                            {% for dl in location %}
+                            <tr>
+                                <td class="border-top-0 px-2 py-4">
+                                    <div class="d-flex no-block align-items-center">
+                                        <div class="">
+                                            <h5 class="text-dark mb-0 font-16 font-weight-medium">{{ dl.nom }} {{ dl.prenom }}</h5>
+                                            <span class="text-muted font-16">numero location : {{ dl.id }}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="border-top-0 px-2 py-4 font-14">Date fin prevue: {{ dl.dateFin|date('Y-m-d') }}</td>
+                                {% set form = formObject.createView %}
+                                {{ form_start(form) }}
+                                <td class="border-top-0 px-2 py-4 font-14 text-center">
+                                    {{ form_widget(form.etat)}}
+                                </td>
+                                <td class="border-top-0 px-2 py-4 font-14 text-center">
+{#                                    <input type="checkbox" value="" checked="">#}
+                                    {{ form_widget(form.retard) }}
+                                </td>
+                                <td class="border-top-0 px-2 py-4 font-14 text-center">
+                                    <div class="popover-icon">
+                                    <input type="submit" value="+" class="btn btn-success text-white rounded-circle btn-circle font-20" />
+                                        {{ form_widget(form.numlocation, {'attr' : { 'value': dl.id }}) }}
+                                    </div>
+                                </td>
+                                {{ form_end(form) }}
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

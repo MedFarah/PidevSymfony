@@ -1,0 +1,44 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Liste des clients</h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead class="bg-info text-white">
+                            <tr>
+                                <th>#</th>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody class="border border-info">
+                            {% for c in clients %}
+                                <tr>
+                                    <td>{{ c.id }}</td>
+                                    <td>{{ c.nom }}</td>
+                                    <td>{{ c.prenom }}</td>
+                                    <td>
+                                        <div class="row">
+                                        {% set form = formObject.createView %}
+                                        {{ form_start (form) }}
+                                        {{ form_widget(form.site, {'attr': {'class': 'form-control' } }) }}
+                                        {{ form_widget(form.client, {'attr': {'value': c.id } }) }}
+                                            <input type="submit" class="btn btn-primary text-center" value="update" />
+                                        {{ form_end (form) }}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

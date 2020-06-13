@@ -1,0 +1,75 @@
+{% extends 'baseback.html.twig' %}
+{% block small_title %}
+    Last login: {{ app.user.lastLogin.date|date('Y-m-d H:m') }}
+{% endblock small_title%}
+
+{% block navbarUser %}
+    {% if update is defined %}
+    <li class="sidebar-item">
+        <a class="sidebar-link sidebar-link" href="{{ path('location_velo_update') }}" aria-expanded="false">
+            <i class="fas fa-bicycle"></i>
+            <span class="hide-menu">Modifier location actuelle</span>
+        </a>
+    </li>
+    <li class="sidebar-item">
+        <a class="sidebar-link sidebar-link" href="{{ path('location_velo_supprimer') }}" aria-expanded="false">
+            <i class="fas fa-bicycle"></i>
+            <span class="hide-menu">Supprimer location actuelle</span>
+        </a>
+    </li>
+    {% else %}
+    <li class="sidebar-item">
+        <a class="sidebar-link sidebar-link" href="{{ path('location_velo_louer') }}" aria-expanded="false">
+            <i class="fas fa-bicycle"></i>
+            <span class="hide-menu">louer vélo</span>
+        </a>
+    </li>
+    {% endif %}
+{% endblock %}
+{% block body %}
+    {{ form_start (form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="form-group row align-items-center">
+        <label class="col-3">Date debut</label>
+        {{ form_widget(form.dateDebut, {'attr': {'class': 'date'}}) }}
+        <br><small> {{ form_errors(form.dateDebut) }}</small>
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">Date fin</label>
+        {{ form_widget(form.dateFin, {'attr': {'class': 'date'}}) }}
+        <br><small> {{ form_errors(form.dateFin) }}</small>
+    </div>
+    <div class="form-group row align-items-center">
+        <label class="col-3">Choisir type</label>
+        <div class="card-columns">
+        {% for choice in form.id_Type.children %}
+            <div class="card">
+            <img class="card-img-top img-fluid" src="{{ asset('uploads/images/' ~ choice.vars.label) }}" alt={{ choice.vars.label }}>
+            <center>{{ form_widget(choice) }}</center>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    <div class="form-group row align-items-center">
+        {{ ivory_google_map(map) }}
+        {{ ivory_google_api([map]) }}
+    </div>
+
+    <div class="form-group row align-items-center">
+        <label class="col-3">Site</label>
+        <div class="mb-4">
+        {{ form_widget (form.id_Site, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <div class="form-actions">
+        <div class="text-right">
+            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-info'}}) }}
+            {{ form_widget(form.reset, {'attr': {'class': 'btn btn-dark'}}) }}
+        </div>
+    </div>
+
+    {{ form_end (form) }}
+{% endblock %}

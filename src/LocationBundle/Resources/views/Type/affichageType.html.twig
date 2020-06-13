@@ -1,0 +1,17 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <div class="card-columns">
+    {% for t in type %}
+            <div class="card">
+                <img class="card-img-top img-fluid" src="{{ asset('uploads/images/' ~ t.image) }}" alt={{ t.image }}>
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ t.type }}</h4>
+                        <a href="{{ path('location_type_delete', { 'id': t.id }) }}" class="btn btn-primary">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+    </div>
+{% endblock %}
