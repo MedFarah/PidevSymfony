@@ -294,6 +294,71 @@ data.forEach(function(item) => {
 									</li>
 								{%  endif %}
 
+								{% if is_granted('ROLE_ADMIN') %}
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Gestion Produits Admin
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+
+											<li class="sidebar-item">
+												<a href="{{ path('produit_index') }}" class="sidebar-link">
+													<span class="hide-menu">
+														index
+													</span>
+												</a>
+											</li>
+
+											<li class="sidebar-item">
+												<a href="{{ path('produit_new') }}" class="sidebar-link">
+													<span class="hide-menu">
+														add produit
+													</span>
+												</a>
+											</li>
+
+
+										</ul>
+									</li>
+
+
+
+
+								{% endif %}
+								{% if is_granted('ROLE_CLIENT') %}
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Gestion client
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+											<li class="sidebar-item">
+												<a href="{{ path('produit_client') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Liste des produits
+													</span>
+												</a>
+											</li>
+											<li class="sidebar-item">
+												<a href="{{ path('produit_new') }}" class="sidebar-link">
+													<span class="hide-menu">
+														add produit
+													</span>
+												</a>
+											</li>
+
+										</ul>
+									</li>
+								{%  endif %}
+
+								<li class="list-divider"></li>
+
+
 								<li class="list-divider"></li>
 								 {% if is_granted('ROLE_ADMIN') %}
 								<li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"

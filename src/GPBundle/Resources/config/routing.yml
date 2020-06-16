@@ -33,7 +33,7 @@ produit_delete:
 
 
 produit_client:
-    path: /
+    path: /showC
     defaults: { _controller: GPBundle:Produit:client}
 
 produit_recherche:

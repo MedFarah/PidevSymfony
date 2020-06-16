@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="" />
+    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/baseback.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/baseback.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GPBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/GPBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GPBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GPBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/delete.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/delete.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/modifier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/modifier.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/GPBundle/Resources/views/produit/new.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,6 +210,9 @@
       <workItem from="1591292470390" duration="741000" />
       <workItem from="1591711954989" duration="439000" />
       <workItem from="1591789526804" duration="9293000" />
+      <workItem from="1592064191191" duration="1087000" />
+      <workItem from="1592150163789" duration="727000" />
+      <workItem from="1592306721441" duration="1112000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;rec add&quot;">
       <created>1591791744351</created>
@@ -235,10 +248,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1584901758733" />
-    <state x="384" y="25" key="CommitChangelistDialog2" timestamp="1591807216742">
+    <state x="384" y="25" key="CommitChangelistDialog2" timestamp="1592307965853">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="384" y="25" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1591807216742" />
+    <state x="384" y="25" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1592307965853" />
     <state x="407" y="243" key="ComposerCompositePathDialog" timestamp="1584898888342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -276,15 +289,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="450" y="267" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1584898865151" />
-    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1591807272013">
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2" timestamp="1592308024735">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1591807272013" />
-    <state x="444" y="223" key="com.intellij.ide.util.TipDialog" timestamp="1591711958435">
+    <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1592308024735" />
+    <state x="444" y="223" key="com.intellij.ide.util.TipDialog" timestamp="1592306933704">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1584965204671" />
-    <state x="444" y="223" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1591711958435" />
+    <state x="444" y="223" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1592306933704" />
     <state x="397" y="191" width="788" height="800" key="run.anything.popup" timestamp="1591281650006">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
