@@ -27,11 +27,7 @@ class AppKernel extends Kernel
             new Ob\HighchartsBundle\ObHighchartsBundle(),
             new ReclamationBundle\ReclamationBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-
-
-
-
-
+            new CommandeBundle\CommandeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

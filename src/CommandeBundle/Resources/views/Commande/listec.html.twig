@@ -1,0 +1,48 @@
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+</style>
+
+{% block body %}
+<center>
+<h1 >Liste Commande</h1>
+</center>
+    <table style="width:100%;border-collapse: collapse;border: 1px solid black;">
+        <tr >
+
+            <th >Reference</th>
+            <th >Date</th>
+            <th >Etat</th>
+            <th >Prix</th>
+
+
+
+        </tr>
+
+
+        {%  for commande in commande %}
+            <tr >
+
+
+                <td>{{ commande.refCmd }}</td>
+                <td>{% if commande.dateCmd %}{{ commande.dateCmd|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ commande.etatCmd}}</td>
+                <td>{{ commande.prixCmd }}</td>
+
+
+
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+
+{% endblock %}

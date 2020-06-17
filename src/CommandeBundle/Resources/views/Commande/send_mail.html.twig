@@ -1,0 +1,18 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+
+        <script >alert('mail a été envoyer') </script>
+
+    {% endfor %}
+
+{{ form_start(f) }}
+    {{ form_widget(f) }}
+<table>
+    <tr>
+        <td><input class="btn-danger"   type="submit" value="envoyer"></td>
+    </tr>
+</table>
+{{ form_end(f) }}
+{% endblock %}

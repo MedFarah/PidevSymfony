@@ -1,0 +1,50 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+
+    <h2>Recherche Commande</h2>
+
+    <form method="POST">
+        <input type="text" name="refCmd">
+        <input type="submit" name="recherche">
+    </form>
+
+    <table style="width:100%">
+        <tr>
+
+            <th>Reference</th>
+            <th>Date</th>
+            <th>Etat</th>
+            <th>Prix</th>
+            <th>Delete</th>
+            <th>Edit</th>
+
+
+        </tr>
+
+
+        {%  for commande in commande %}
+            <tr>
+
+
+                <td>{{ commande.refCmd }}</td>
+                <td>{% if commande.dateCmd %}{{ commande.dateCmd|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ commande.etatCmd}}</td>
+                <td>{{ commande.prixCmd }}</td>
+                <td><a href="{{ path('commande_deleteCommande',{'id': commande.refCmd }) }}" >Supprimer</a></td>
+                <td><a href="{{ path('commande_editCommande',{'id': commande.refCmd }) }}" >Edit</a></td>
+
+
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+
+
+
+
+
+
+{% endblock %}
