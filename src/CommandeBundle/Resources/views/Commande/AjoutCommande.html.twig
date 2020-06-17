@@ -1,0 +1,16 @@
+{% extends 'baseback.html.twig' %}
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <br>
+    <input class="btn-danger" type="submit" value="Ajouter" />
+    {{ form_end(form) }}
+<br>
+    <ul>
+        <li>
+            <a href="{{ path('commande_afficheCommande') }}">Back to the list</a>
+        </li>
+    </ul>
+
+{% endblock %}

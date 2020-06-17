@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 13 juin 2020 à 11:58
--- Version du serveur :  10.4.10-MariaDB
--- Version de PHP :  7.3.12
+-- Généré le :  mer. 17 juin 2020 à 17:41
+-- Version du serveur :  5.5.15
+-- Version de PHP :  5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,32 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `pidev`
+-- Base de données :  `pidev3`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande`
+--
+
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
+  `ref_cmd` varchar(760) NOT NULL,
+  `ref_user` int(11) NOT NULL,
+  `date_cmd` date NOT NULL,
+  `etat_cmd` varchar(1000) NOT NULL,
+  `prix_cmd` float NOT NULL,
+  PRIMARY KEY (`ref_cmd`),
+  KEY `ref_user` (`ref_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`ref_cmd`, `ref_user`, `date_cmd`, `etat_cmd`, `prix_cmd`) VALUES
+('test1', 44, '2020-06-17', 'En cours', 20000);
 
 -- --------------------------------------------------------
 
@@ -109,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `fos_user` (
   UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`),
   UNIQUE KEY `UNIQ_957A6479C05FB297` (`confirmation_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `fos_user`
@@ -122,7 +146,8 @@ INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_
 (39, 'FaresClient', 'faresclient', 'f_benslama@yahoo.fr', 'f_benslama@yahoo.fr', 1, NULL, '$2y$13$QchI9krxSYG.3Q/DkSNPSOF7mtdJb4e1wRVal7D21ciiKtLoKUUoW', '2020-05-17 14:55:04', '3pqre7Jfedn0hPbcgY3OxxmUD6ldhLdatA6rnTsH5RU', NULL, 'a:0:{}', 'asdasda saddas', '12345678', '2020-04-07 21:25:07', 'Fares Ben Slama'),
 (40, 'Clients', 'clients', 'faresbenssslama95@gmail.com', 'faresbenssslama95@gmail.com', 1, NULL, '$2y$13$1MsrZwe8P8Spap4H3qysHePHc/8FEBLuMvVeDZkrJXDP2DL5paVxm', '2020-04-14 21:21:42', 'uIz9dl-5YXe2x5UR3pHeQkTsRPwyZWVthaOYshEUxKA', NULL, 'a:1:{i:0;s:11:\"ROLE_CLIENT\";}', 'asdasda saddas', '12345678', '2020-04-14 20:24:52', 'Fares'),
 (41, 'FaresAgents', 'faresagents', 'f_benslama@yahoso.fr', 'f_benslama@yahoso.fr', 1, NULL, '$2y$13$z3lRCgOUiGqsAgHBg6V3peMa7L71qgcDmnRO0L.rEVLMex8aW6Jtq', NULL, 'il2ygOLTdKDVFyqoKWtuqCDQYgx1SZWZV1LwM6al1TI', NULL, 'a:1:{i:0;s:10:\"ROLE_AGENT\";}', 'asdasda saddas', '12345678', '2020-05-15 21:20:07', 'Lamis'),
-(42, 'AchrefClient', 'achrefclient', 'adasd@dsa.com', 'adasd@dsa.com', 1, NULL, '$2y$13$pimo54hZ2tknv4dTxvFpKeZN13oKdlbSB0ObcblfOBqBN9kFKsQRG', '2020-05-17 14:57:06', 'EJfBuD99HbdQHeI-5Y5ksnD03dN-b6KP7WvHpIIwmyA', NULL, 'a:1:{i:0;s:11:\"ROLE_CLIENT\";}', 'asdasda saddas', '12345678', '2020-05-17 14:56:01', 'Achref');
+(42, 'AchrefClient', 'achrefclient', 'adasd@dsa.com', 'adasd@dsa.com', 1, NULL, '$2y$13$pimo54hZ2tknv4dTxvFpKeZN13oKdlbSB0ObcblfOBqBN9kFKsQRG', '2020-05-17 14:57:06', 'EJfBuD99HbdQHeI-5Y5ksnD03dN-b6KP7WvHpIIwmyA', NULL, 'a:1:{i:0;s:11:\"ROLE_CLIENT\";}', 'asdasda saddas', '12345678', '2020-05-17 14:56:01', 'Achref'),
+(44, 'chadi', 'chadi', 'chadisassi@gmaill.com', 'chadisassi@gmaill.com', 1, NULL, '$2y$13$1f/ziR7SpjtAoQhaSXiLBOhgcpeX.LuGpVmdXARPL/KQ9DDBkh4Ue', '2020-06-17 15:53:34', NULL, NULL, 'a:1:{i:0;s:10:\"ROLE_ADMIN\";}', 'tunis,tunis', '78945623', '2020-06-17 15:52:21', 'chadi');
 
 -- --------------------------------------------------------
 
@@ -171,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
   `icon` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `route` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `route_parameters` longtext COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '(DC2Type:array)',
+  `route_parameters` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:array)',
   `notification_date` datetime NOT NULL,
   `seen` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
@@ -309,59 +334,6 @@ CREATE TABLE IF NOT EXISTS `reclamations` (
   KEY `IDX_1CAD6B768E54FB25` (`livraison_id`),
   KEY `IDX_1CAD6B763414710B` (`agent_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `utilisateur`
---
-
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
-  `role` text NOT NULL,
-  `login` text NOT NULL,
-  `password` text NOT NULL,
-  `nomComplet` text NOT NULL,
-  `mail` text NOT NULL,
-  `adresse` text NOT NULL,
-  `tel` text NOT NULL,
-  `dateNaissance` text NOT NULL,
-  `dateCreation` datetime NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `utilisateur`
---
-
-INSERT INTO `utilisateur` (`id_user`, `role`, `login`, `password`, `nomComplet`, `mail`, `adresse`, `tel`, `dateNaissance`, `dateCreation`) VALUES
-(2, 'Client', 'pass@oass.tn', 'pass@oass.tn', 'nom', 'mail', 'addresse', '2566656', '2020-20-11', '2020-02-05 00:00:00'),
-(3, 'Administrateur', 'test@test.com', 'test@test.com', 'root', 'root', 'root', 'root', 'root', '2020-02-17 22:01:46');
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `livraison`
---
-ALTER TABLE `livraison`
-  ADD CONSTRAINT `FK_A60C9F1F19EB6921` FOREIGN KEY (`client_id`) REFERENCES `fos_user` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_A60C9F1F3414710B` FOREIGN KEY (`agent_id`) REFERENCES `fos_user` (`id`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `participants`
---
-ALTER TABLE `participants`
-  ADD CONSTRAINT `FK_7169709263FECAEA` FOREIGN KEY (`idEvenements`) REFERENCES `evenements` (`id`) ON DELETE SET NULL;
-
---
--- Contraintes pour la table `reclamations`
---
-ALTER TABLE `reclamations`
-  ADD CONSTRAINT `FK_CE6064043414710B` FOREIGN KEY (`agent_id`) REFERENCES `fos_user` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_CE6064048E54FB25` FOREIGN KEY (`livraison_id`) REFERENCES `livraison` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

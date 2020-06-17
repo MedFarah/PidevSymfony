@@ -243,6 +243,10 @@ data.forEach(function(item) => {
 										</ul>
 									</li>
 								{%  endif %}
+
+
+
+
 								{% if is_granted('ROLE_ADMIN') %}
 									<li class="sidebar-item">
 										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
@@ -356,7 +360,48 @@ data.forEach(function(item) => {
 									</li>
 								{%  endif %}
 
-								<li class="list-divider"></li>
+
+								<li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+															 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+												class="hide-menu">Commande </span></a>
+									<ul aria-expanded="false" class="collapse  first-level base-level-line">
+										{% if is_granted('ROLE_ADMIN') %}
+
+											<li class="sidebar-item"><a href="{{ path('commande_afficheCommande') }}" class="sidebar-link"><span
+															class="hide-menu"> Afficher Commande
+                                        </span></a>
+											</li>
+
+											<li class="sidebar-item"><a href="{{ path('commande_ajoutCommande') }}"  class="sidebar-link"><span
+															class="hide-menu">Ajouter commande
+                                        </span></a>
+											</li>
+
+										{% elseif  is_granted('ROLE_USER') %}
+
+
+											<li class="sidebar-item"><a href="{{ path('commande_affichebyclient') }}" class="sidebar-link"><span
+															class="hide-menu"> Afficher Commande
+                                        </span></a>
+											</li>
+
+
+										{% endif %}
+
+									</ul>
+								</li>
+
+								{% if is_granted('ROLE_ADMIN') %}
+
+									<li class="sidebar-item"><a href="{{ path('commande_mail') }}" class="sidebar-link"><span
+													class="hide-menu"> Contacter client
+                                        </span></a>
+									</li>
+									<li class="list-divider"></li>
+
+								{% elseif  is_granted('ROLE_USER') %}
+									<li class="list-divider"></li>
+								{% endif %}
 
 
 								<li class="list-divider"></li>

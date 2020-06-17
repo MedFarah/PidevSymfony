@@ -1,0 +1,18 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <h1>Commande edit</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <br>
+    <input type="submit" value="Edit" />
+    {{ form_end(form) }}
+<br>
+    <ul>
+        <li>
+            <a href="{{ path('commande_afficheCommande') }}">Back to the list</a>
+        </li>
+
+    </ul>
+{% endblock %}

@@ -1,0 +1,61 @@
+
+
+commande_ajoutCommande:
+    path:     /ajoutCommande
+    defaults: { _controller: CommandeBundle:Commande:ajoutCommande }
+
+commande_afficheCommande:
+    path:     /afficheCommande
+    defaults: { _controller: CommandeBundle:Commande:afficheCommande }
+commande_deleteCommande:
+    path:     /deleteCommande/{id}
+    defaults: { _controller: CommandeBundle:Commande:deleteCommande }
+commande_editCommande:
+    path:     /editCommande/{id}
+    defaults: { _controller: CommandeBundle:Commande:editCommande }
+
+commande_recherche:
+    path:     /rechercheByReference
+    defaults: { _controller: CommandeBundle:Commande:rechercheByReference }
+commande_pdf:
+    path:     /pdf
+    defaults: { _controller: CommandeBundle:Commande:pdf }
+
+commande_deletebyclient:
+    path:     /deletebyclient/{id}
+    defaults: { _controller: CommandeBundle:Commande:deleteByClient }
+
+commande_affichebyclient:
+    path:     /affichebyclient
+    defaults: { _controller: CommandeBundle:Commande:afficheByClient }
+
+commande_mail:
+    path:     /sendMail
+    defaults: { _controller: CommandeBundle:Mail:sendMail }
+
+create_commande:
+    path:     /commande/new
+    defaults: { _controller: CommandeBundle:Commande:new}
+all:
+    path:     /commande/all
+    defaults: { _controller: CommandeBundle:Commande:all }
+
+find_commande:
+    path:     /commande/find/{id}
+    defaults: { _controller: CommandeBundle:Commande:find}
+
+edit_commande:
+    path:     /commande/edit/{id}
+    defaults: { _controller: CommandeBundle:Commande:edit}
+
+
+
+delete_commande:
+    path:     /commande/delete/{id}
+    defaults: { _controller: CommandeBundle:Commande:delete}
+
+
+
+
+
+

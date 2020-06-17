@@ -1,0 +1,91 @@
+
+
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+
+        <script >alert('commande a été ajouté') </script>
+
+    {% endfor %}
+    {% for message in app.flashes('info') %}
+
+        <script >alert('commande a été modifié') </script>
+
+    {% endfor %}
+
+
+
+    {% for message in app.flashes('contre') %}
+
+        <script >alert('il ya plus que 3 jour de date de commande') </script>
+
+    {% endfor %}
+
+    <form style="padding-right:50px" method="POST">
+        <input class=" custom-shadow custom-radius  " placeholder="Reference"  type="text" name="refCmd">
+
+        <input class="btn-danger"  type="submit" name="recherche" value="Chercher">
+    </form>
+
+<br>
+
+
+
+
+    <table style="width:100%">
+        <tr>
+
+            <th>{{ knp_pagination_sortable(commande, 'Reference', 'c.refCmd') }}</th>
+            <th>{{ knp_pagination_sortable(commande, 'Date', 'c.dateCmd') }}</th>
+            <th>{{ knp_pagination_sortable(commande, 'Etat', 'c.etatCmd') }}</th>
+            <th>{{ knp_pagination_sortable(commande, 'Prix', 'c.prixCmd') }}</th>
+            <th>Utilisateur</th>
+            {% if is_granted('ROLE_ADMIN') %}
+            <th>Delete</th>
+            <th>Edit</th>
+            {% elseif  is_granted('ROLE_USER') %}
+                <th>Delete</th>
+            {% endif %}
+
+
+        </tr>
+
+
+        {%  for commande in commande %}
+            <tr>
+
+
+                <td>{{ commande.refCmd }}</td>
+                <td>{% if commande.dateCmd %}{{ commande.dateCmd|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ commande.etatCmd}}</td>
+                <td>{{ commande.prixCmd }}</td>
+                <td>{{ commande.getIdUser() }}</td>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                <td ><a href="{{ path('commande_deleteCommande',{'id': commande.refCmd }) }}" onclick="return confirm('ARE U SURE ??')" >Supprimer</a></td>
+                    <td><a href="{{ path('commande_editCommande',{'id': commande.refCmd }) }}" >Edit</a></td>
+
+            {% elseif  is_granted('ROLE_USER') %}
+                <td ><a href="{{ path('commande_deletebyclient',{'id': commande.refCmd }) }}" onclick="return confirm('ARE U SURE ???')" >Annuler</a></td>
+                {% endif %}
+
+
+
+
+
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{ path('commande_pdf') }}"><img src="{{ asset('assets/back/images/pdf-icon-11549528510ilxx4eex38.png') }}"  width="40" height="40"></a>
+<br><br>
+    <div class="navigation text-left">
+        {{ knp_pagination_render(commande) }}
+    </div>
+
+
+
+
+{% endblock %}
