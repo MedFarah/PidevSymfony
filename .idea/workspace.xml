@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="">
+    <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="&quot;wiem part index&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_22_03_2020_18_41_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_22_03_2020_18_41_c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_22_03_2020_18_41_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_22_03_2020_18_41_s.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Controller/ReclamationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Entity/Reclamation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,15 +153,18 @@
       <command value="c dul" />
       <command value="s generate:bundle" />
       <command value="c dump-autoload" />
-      <command value="s doctrine:generate:entity" />
       <command value="s doctrine:generate:entity EvenmentsBundle:evenment" />
       <command value="s doctrine:generate:entity EvenmentsBundle:evenements" />
       <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:generate:crud" />
       <command value="s debug:router" />
       <command value="s assets:install" />
-      <command value="s doctrine:schema:update" />
       <command value="php bin/console assetic:dump --env=prod --no-debug" />
+      <command value="$ composer require doctrine/doctrine-migrations-bundle &quot;^1.0&quot; " />
+      <command value="s doctrine:generate:entity" />
+      <command value="s doctrine:schema:update" />
+      <command value="make:migration" />
+      <command value="s doctrine:generate:entity ReclamationBundle:Reclamation" />
     </option>
   </component>
   <component name="RunManager">
@@ -205,6 +213,8 @@
       <workItem from="1592064191191" duration="1087000" />
       <workItem from="1592150163789" duration="727000" />
       <workItem from="1592306721441" duration="1910000" />
+      <workItem from="1592395360170" duration="19980000" />
+      <workItem from="1592424458042" duration="723000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;rec add&quot;">
       <created>1591791744351</created>
@@ -244,14 +254,15 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="519" y="119" key="#AppKernel.php/0.0.1600.860@0.0.1600.860" timestamp="1591796211761" />
-    <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1584901758733">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1584901758733" />
-    <state x="384" y="25" key="CommitChangelistDialog2" timestamp="1592308038066">
+    <state x="158" y="99" key="#com.intellij.ide.util.MemberChooser" timestamp="1592407023095">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="384" y="25" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1592308038066" />
+    <state x="135" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1584901758733" />
+    <state x="158" y="99" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1592407023095" />
+    <state x="384" y="25" key="CommitChangelistDialog2" timestamp="1592395590309">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="384" y="25" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1592395590309" />
     <state x="407" y="243" key="ComposerCompositePathDialog" timestamp="1584898888342">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -261,30 +272,35 @@
     </state>
     <state x="456" y="158" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1584898856455" />
     <state x="534" y="187" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1590945716885" />
-    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1591282842198">
+    <state x="570" y="254" key="FrameworkEditDialogDimensionKey" timestamp="1592415240123">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="570" y="254" key="FrameworkEditDialogDimensionKey/0.0.1600.860@0.0.1600.860" timestamp="1592415240123" />
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom" timestamp="1592419738505">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="493" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1584965345661" />
-    <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1591282842198" />
-    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1591282842197">
+    <state width="1557" height="222" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1592419738505" />
+    <state width="1557" height="222" key="GridCell.Tab.0.center" timestamp="1592419738505">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="493" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1584965345660" />
-    <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1591282842197" />
-    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1591282842196">
+    <state width="1557" height="222" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1592419738505" />
+    <state width="1557" height="222" key="GridCell.Tab.0.left" timestamp="1592419738504">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="493" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1584965345659" />
-    <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1591282842196" />
-    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1591282842197">
+    <state width="1557" height="222" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1592419738504" />
+    <state width="1557" height="222" key="GridCell.Tab.0.right" timestamp="1592419738505">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1323" height="493" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1584965345660" />
-    <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1591282842197" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1584898891645">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1557" height="222" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1592419738505" />
+    <state x="216" y="8" key="SettingsEditor" timestamp="1592415244610">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1584898891645" />
+    <state x="216" y="8" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1592415244610" />
     <state x="450" y="267" key="SymfonyPathDialog" timestamp="1584898865151">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -293,16 +309,16 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="392" y="164" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1592308046244" />
-    <state x="444" y="223" key="com.intellij.ide.util.TipDialog" timestamp="1592306933704">
+    <state x="444" y="223" key="com.intellij.ide.util.TipDialog" timestamp="1592424518501">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="379" y="189" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1584965204671" />
-    <state x="444" y="223" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1592306933704" />
-    <state x="397" y="191" width="788" height="800" key="run.anything.popup" timestamp="1591281650006">
+    <state x="444" y="223" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1592424518501" />
+    <state x="397" y="191" width="788" height="800" key="run.anything.popup" timestamp="1592415964409">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1584965256224" />
-    <state x="397" y="191" width="788" height="800" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1591281650006" />
+    <state x="397" y="191" width="788" height="800" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1592415964409" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1591798385071">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

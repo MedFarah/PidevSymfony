@@ -53,7 +53,15 @@ class ReclamationController extends Controller
             $entities = $em->getRepository('ReclamationBundle:Reclamation')->searchByUser($term,$user->getId());
         }
         else{
-            $entities = $em->getRepository('ReclamationBundle:Reclamation')->findBy( ['idUser' => $user->getId()]);
+
+          //$entities = $em->getRepository('ReclamationBundle:Reclamation')->findBy(
+            //   ['id_user' => $user->getId()]);
+           // $entities = $em->getRepository('ReclamationBundle:Reclamation')->searchByUserMobile($user->getId());
+          //  $entities =$em->createQuery('SELECT (c) FROM ReclamationBundle:Reclamation c WHERE c.id_user = :now')->setParameter('now', $user->getId());
+
+
+            $entities = $em->getRepository('ReclamationBundle:Reclamation')->findAll();
+
         }
 
 
@@ -202,6 +210,33 @@ class ReclamationController extends Controller
          )); */
     }
 
+
+    /**
+     * Lists all reclamation entities.
+     *
+     * @Route("/indexUsercn1", name="reclamation_index_cn1_user")
+     * @Method("GET")
+     * @param Request $request
+     * @return Response
+     */
+    public function indexUserCoedeNameOneAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $reclamation = new Reclamation();
+
+
+            $entities = $em->getRepository('ReclamationBundle:Reclamation')->findBy( ['idUser' => $request->get('id')]);
+
+
+        $serial = new Serializer([new ObjectNormalizer()]);
+        $formated = $serial->normalize($entities);
+        return new JsonResponse($formated);
+
+    }
+
+
+
     /**
      * Creates a new reclamation entity.
      *
@@ -298,16 +333,17 @@ class ReclamationController extends Controller
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $reclamation = new Reclamation();
         $form = $this->createFormBuilder($reclamation)
-            ->add('image', FileType::class, array('label' => 'Image(JPG) '))
+            ->add('image', FileType::class, array('label' => 'Image(JPG) ','data_class' => null))
             ->add('datereclamation',DateType::class,array('widget' => 'single_text',
                 'label' => 'Date Reclamation ',
                 // prevents rendering it as type="date", to avoid HTML5 date pickers
                 'html5' => true,
-
+                'data_class' => null,
                 // adds a class that can be selected in JavaScript
                 'attr' => ['class' => 'js-datepicker'],))
             ->add('typereclamation', ChoiceType::class, array(
                 'label' => 'Type Reclamation ',
+                'data_class' => null,
                 'attr' => ['class' => 'form-control'],
                 'choices'  => array(
                     "Evenement" => "Evenement",

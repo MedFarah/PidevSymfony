@@ -27,4 +27,12 @@ class ReclamationRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery()
             ->execute();
     }
+
+    public function searchByUserMobile($iduser){
+        return $this->createQueryBuilder('R')
+            ->andWhere('R.id_user = :id_user')
+            ->setParameter('id_user',$iduser)
+            ->getQuery()
+            ->execute();
+    }
 }
