@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="`user`")
+ * @ORM\Table(name="`fos_user`")
  */
 class User extends BaseUser
 {
@@ -29,7 +29,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @ORM\Column(name="nomComplet", type="string", length=255, nullable=false)
      */
     private $nom;
 
@@ -47,29 +47,6 @@ class User extends BaseUser
     public function setNom($nom)
     {
         $this->nom = $nom;
-    }
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=255, nullable=false)
-     */
-    private $prenom;
-
-    /**
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * @param string $prenom
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
     }
 
     /**

@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="card-columns">
-    {% for t in type %}
+        {% for t in type %}
             <div class="card">
                 <img class="card-img-top img-fluid" src="{{ asset('uploads/images/' ~ t.image) }}" alt={{ t.image }}>
                 <div class="card text-center">
@@ -12,6 +12,6 @@
                     </div>
                 </div>
             </div>
-    {% endfor %}
+        {% endfor %}
     </div>
 {% endblock %}

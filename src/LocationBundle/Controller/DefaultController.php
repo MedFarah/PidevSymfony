@@ -37,29 +37,31 @@ class DefaultController extends Controller
                     ->getResult();
             }
             elseif (in_array('ROLE_CHEF_SITE',$user->getRoles())){
+                $em = $this->getDoctrine()->getManager();
+                $nuser = $em->getRepository("LocationBundle:User")->find($user->getId());
                 $query = $this->getDoctrine()->getManager()
                     ->createQuery(
                         'SELECT dl FROM LocationBundle:DetailLocation dl WHERE dl.id_site = :numsite'
-                    )->setParameter('numsite', $user->getnumerosite());
+                    )->setParameter('numsite', $nuser->getnumerosite());
                 $detaillocation = $query->getResult();
 
                 $turquoise = $this->getDoctrine()->getManager()
                     ->createQuery(
                         'SELECT count(dl) FROM LocationBundle:DetailLocation dl WHERE dl.id_site = :numsite')
-                    ->setParameter('numsite', $user->getnumerosite())
+                    ->setParameter('numsite', $nuser->getnumerosite())
                     ->getResult();
 
                 $green = $this->getDoctrine()->getManager()
                     ->createQuery(
                         'SELECT count(dl) FROM LocationBundle:DetailLocation dl where dl.status = :status and dl.id_site = :numsite')
                     ->setParameter('status', "terminé")
-                    ->setParameter('numsite', $user->getnumerosite())
+                    ->setParameter('numsite', $nuser->getnumerosite())
                     ->getResult();
                 $red = $this->getDoctrine()->getManager()
                     ->createQuery(
                         'SELECT count(dl) FROM LocationBundle:DetailLocation dl where dl.status = :status and dl.id_site = :numsite')
                     ->setParameter('status', "en cours")
-                    ->setParameter('numsite', $user->getnumerosite())
+                    ->setParameter('numsite', $nuser->getnumerosite())
                     ->getResult();
             }
             else{

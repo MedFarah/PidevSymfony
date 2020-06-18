@@ -74,5 +74,29 @@ locationmobile_login:
     defaults: { _controller: LocationBundle:ApiMobile:loginMobile }
 
 locationmobile_getimage:
-    path:     /loginMobile/{username}/{password}
-    defaults: { _controller: LocationBundle:ApiMobile:loginMobile }
+    path:     /mobile/gettypes
+    defaults: { _controller: LocationBundle:ApiMobile:getType }
+
+locationmobile_getlocation:
+    path:     /mobile/getlocation/{id}
+    defaults: { _controller: LocationBundle:ApiMobile:getlocations }
+
+locationmobile_getsite:
+    path:     /mobile/getsites
+    defaults: { _controller: LocationBundle:ApiMobile:getSites }
+
+locationmobile_getlocationparsite:
+    path:     /mobile/getlocationsparsite/{id}
+    defaults: { _controller: LocationBundle:ApiMobile:getlocationsparsite }
+
+locationmobile_chefsitevaliderlocation:
+    path:     /mobile/valider/{id}/{retard}/{etat}
+    defaults: { _controller: LocationBundle:ApiMobile:validerlocation }
+
+locationmobile_deletelocation:
+    path:     /mobile/delete/{id}
+    defaults: { _controller: LocationBundle:ApiMobile:deletelocation }
+
+locationmobile_addlocation:
+    path:     /mobile/ajout/{id}/{datedebut}/{datefin}/{typeid}/{site}
+    defaults: { _controller: LocationBundle:ApiMobile:addlocation }

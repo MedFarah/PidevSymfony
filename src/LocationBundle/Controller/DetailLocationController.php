@@ -43,28 +43,24 @@ class DetailLocationController extends Controller
         $location = new DetailLocation();
         $form = $this->createForm(DetailLocationType::class, $location);
 
-        $map = new map();
-        $positions = $blue = $this->getDoctrine()->getManager()
-            ->createQuery(
-                'SELECT s.emplacement, s.longitude, s.latitude FROM LocationBundle:Site s')->getResult();
-        foreach ($positions as $site){
-            $marker = new Marker(new Coordinate($site["latitude"], $site["longitude"]));
-            $marker->setOption('label', $site["emplacement"]);
-            $map->getOverlayManager()
-                ->addMarker($marker);
+//        $map = new map();
+//        $positions = $blue = $this->getDoctrine()->getManager()
+//            ->createQuery(
+//                'SELECT s.emplacement, s.longitude, s.latitude FROM LocationBundle:Site s')->getResult();
+//        foreach ($positions as $site){
+//            $marker = new Marker(new Coordinate($site["latitude"], $site["longitude"]));
+//            $marker->setOption('label', $site["emplacement"]);
+//            $map->getOverlayManager()
+//                ->addMarker($marker);
+//        }
 
-        }
-        $infoWindow = new InfoWindow('content', InfoWindowType::INFO_BOX, new Coordinate('34.8706344', '9.5554123'));
-//        $map->getOverlayManager()->addInfoWindow($infoWindow);
-
-//        $map->getOverlayManager()->addMarker(new Marker(new Coordinate('36.850355', '10.202271')));
-        $map->setCenter(new Coordinate('34.8706344', '9.5554123'));
-//        $map->setAutoZoom(false);
-        $map->setMapOption('zoom', 6);
+//        $map->setCenter(new Coordinate('34.8706344', '9.5554123'));
+//        $map->setMapOption('zoom', 6);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-            $location->setIdUser($this->getUser());
+            $user = $this->getDoctrine()->getManager()->getRepository("LocationBundle:User")->find($this->getUser()->getId());
+            $location->setIdUser($user);
             $location->setStatus("en cours");
             $em = $this->getDoctrine()->getManager();
 
@@ -75,8 +71,9 @@ class DetailLocationController extends Controller
         }
         return $this->render("@Location/location/louerVelo.html.twig",
             array('form'=>$form->createView(),
-                'map'=>$map,
-                'positions'=>$positions));
+//                'map'=>$map,
+//                'positions'=>$positions
+            ));
     }
 
     /**
@@ -126,18 +123,18 @@ class DetailLocationController extends Controller
             'status' => 'en cours',
         ]);
         $form = $this->createForm(DetailLocationType::class, $location);
-        $map = new map();
-        $positions = $blue = $this->getDoctrine()->getManager()
-            ->createQuery(
-                'SELECT s.emplacement, s.longitude, s.latitude FROM LocationBundle:Site s')->getResult();
-        foreach ($positions as $site){
-            $marker = new Marker(new Coordinate($site["latitude"], $site["longitude"]));
-            $marker->setOption('label', $site["emplacement"]);
-            $map->getOverlayManager()
-                ->addMarker($marker);
-        }
-        $map->setCenter(new Coordinate('34.8706344', '9.5554123'));
-        $map->setMapOption('zoom', 6);
+//        $map = new map();
+//        $positions = $blue = $this->getDoctrine()->getManager()
+//            ->createQuery(
+//                'SELECT s.emplacement, s.longitude, s.latitude FROM LocationBundle:Site s')->getResult();
+//        foreach ($positions as $site){
+//            $marker = new Marker(new Coordinate($site["latitude"], $site["longitude"]));
+//            $marker->setOption('label', $site["emplacement"]);
+//            $map->getOverlayManager()
+//                ->addMarker($marker);
+//        }
+//        $map->setCenter(new Coordinate('34.8706344', '9.5554123'));
+//        $map->setMapOption('zoom', 6);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
             $location->setDateDebut($form['dateDebut']->getData());
@@ -149,8 +146,8 @@ class DetailLocationController extends Controller
         }
         return $this->render("@Location/location/louerVelo.html.twig",
             array('form'=>$form->createView(),
-                'map'=>$map,
-                'positions'=>$positions,
+//                'map'=>$map,
+//                'positions'=>$positions,
                 'update'=>$update));
 
     }

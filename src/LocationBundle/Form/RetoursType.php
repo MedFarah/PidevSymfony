@@ -15,8 +15,8 @@ class RetoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('etat', CheckboxType::class, [
-                'required' => false,
-            ])
+            'required' => false,
+        ])
             ->add('retard', CheckboxType::class, [
                 'required' => false,
             ])

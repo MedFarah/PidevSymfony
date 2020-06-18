@@ -17,9 +17,10 @@ class ChefSiteController extends Controller
     public function afficherClientAction(Request $request){
         $query = $this->getDoctrine()->getManager()
             ->createQuery(
-                'SELECT u FROM LocationBundle:User u WHERE u.roles NOT LIKE :roleadmin AND u.roles NOT LIKE :rolecchefsite'
+                'SELECT u FROM LocationBundle:User u WHERE u.roles NOT LIKE :roleadmin AND u.roles NOT LIKE :rolecchefsite AND u.roles NOT LIKE :roleagent'
             )->setParameter('roleadmin', '%"ROLE_ADMIN"%')
-            ->setParameter('rolecchefsite', '%"ROLE_CHEF_SITE"%');
+            ->setParameter('rolecchefsite', '%"ROLE_CHEF_SITE"%')
+            ->setParameter('roleagent', '%"ROLE_AGENT"%');
         $users = $query->getResult();
 
         $query1 = $this->getDoctrine()->getManager()
@@ -79,10 +80,10 @@ class ChefSiteController extends Controller
 
     }
 
-    public function DowngradetoClientAction(User $User, Request $request){
-        $id = $User->getId();
+    public function DowngradetoClientAction($idclient){
+
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('LocationBundle:User')->find($id);
+        $user = $em->getRepository('LocationBundle:User')->find($idclient);
         $user->removeRole("ROLE_CHEF_SITE");
         $em->flush();
         return $this->redirectToRoute("location_Chefsite_affichage");

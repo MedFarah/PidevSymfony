@@ -11,8 +11,7 @@
                             <thead class="bg-info text-white">
                             <tr>
                                 <th>#</th>
-                                <th>nom</th>
-                                <th>prenom</th>
+                                <th>nom complet</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -21,15 +20,14 @@
                                 <tr>
                                     <td>{{ c.id }}</td>
                                     <td>{{ c.nom }}</td>
-                                    <td>{{ c.prenom }}</td>
                                     <td>
                                         <div class="row">
-                                        {% set form = formObject.createView %}
-                                        {{ form_start (form) }}
-                                        {{ form_widget(form.site, {'attr': {'class': 'form-control' } }) }}
-                                        {{ form_widget(form.client, {'attr': {'value': c.id } }) }}
+                                            {% set form = formObject.createView %}
+                                            {{ form_start (form) }}
+                                            {{ form_widget(form.site, {'attr': {'class': 'form-control' } }) }}
+                                            {{ form_widget(form.client, {'attr': {'value': c.id } }) }}
                                             <input type="submit" class="btn btn-primary text-center" value="update" />
-                                        {{ form_end (form) }}
+                                            {{ form_end (form) }}
                                         </div>
                                     </td>
                                 </tr>

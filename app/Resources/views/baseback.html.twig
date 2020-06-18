@@ -115,8 +115,8 @@ data.forEach(function(item) => {
 							<!-- Right side toggle and nav items -->
 							<!-- ============================================================== -->
 			{% if is_granted("IS_AUTHENTICATED_REMEMBERED") and  is_granted('ROLE_ADMIN') %}						
-{{ render(controller('LivraisonBundle:Default:displays')) }}
-{% endif %}
+				{{ render(controller('LivraisonBundle:Default:displays')) }}
+			{% endif %}
 						</div>
 					</nav>
 				</header>
@@ -159,15 +159,16 @@ data.forEach(function(item) => {
 											</span>
 										</a>
 									</li>
+									<li class="sidebar-item">
+										<a class="sidebar-link sidebar-link" href="{{ path('fos_user_registration_register') }}" aria-expanded="false">
+											<i data-feather="lock" class="feather-icon"></i>
+											<span class="hide-menu">Register
+										</span>
+										</a>
+									</li>
 								{% endif %}
 
-								<li class="sidebar-item">
-									<a class="sidebar-link sidebar-link" href="{{ path('fos_user_registration_register') }}" aria-expanded="false">
-										<i data-feather="lock" class="feather-icon"></i>
-										<span class="hide-menu">Register
-										</span>
-									</a>
-								</li>
+
 								<li class="list-divider"></li>
 
 								<li class="list-divider"></li>
@@ -176,6 +177,7 @@ data.forEach(function(item) => {
 								</li>
 
 								{% if is_granted('ROLE_ADMIN') %}
+
 									<li class="sidebar-item">
 										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
 											<i data-feather="file-text" class="feather-icon"></i>
@@ -222,32 +224,56 @@ data.forEach(function(item) => {
 											</li>
 										</ul>
 									</li>
-								{% endif %}
-								{% if is_granted('ROLE_AGENT') %}
 									<li class="sidebar-item">
 										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
 											<i data-feather="file-text" class="feather-icon"></i>
 											<span class="hide-menu">
-												Gestion Taches Agent
+												Gestion Chef Site
 											</span>
 										</a>
 										<ul aria-expanded="false" class="collapse  first-level base-level-line">
 											<li class="sidebar-item">
-												<a href="{{ path('livraison_agent') }}" class="sidebar-link">
+												<a href="{{ path('location_client_affichage') }}" class="sidebar-link">
 													<span class="hide-menu">
-														Liste des taches agent
+														Ajouter un chef site
 													</span>
 												</a>
 											</li>
 
+											<li class="sidebar-item">
+												<a href="{{ path('location_Chefsite_affichage') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Liste des chefs sites
+													</span>
+												</a>
+											</li>
 										</ul>
 									</li>
-								{%  endif %}
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Site de location
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+											<li class="sidebar-item">
+												<a href="{{ path('location_site_ajout') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Ajouter un site
+													</span>
+												</a>
+											</li>
 
-
-
-
-								{% if is_granted('ROLE_ADMIN') %}
+											<li class="sidebar-item">
+												<a href="{{ path('location_site_affichage') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Liste des sites
+													</span>
+												</a>
+											</li>
+										</ul>
+									</li>
 									<li class="sidebar-item">
 										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
 											<i data-feather="file-text" class="feather-icon"></i>
@@ -272,37 +298,6 @@ data.forEach(function(item) => {
 
 										</ul>
 									</li>
-
-									
-
-
-								{% endif %}
-								{% if is_granted('ROLE_USER') %}
-									<li class="sidebar-item">
-										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
-											<i data-feather="file-text" class="feather-icon"></i>
-											<span class="hide-menu">
-												Gestion evenement
-											</span>
-										</a>
-										<ul aria-expanded="false" class="collapse  first-level base-level-line">
-											<li class="sidebar-item">
-												<a href="{{ path('evenements_affiche') }}" class="sidebar-link">
-													<span class="hide-menu">
-														Liste des evenements
-													</span>
-												</a>
-											</li>
-											<li class="sidebar-item"><a href="{{ path('affiche_parts') }}" class="sidebar-link"><span
-															class="hide-menu"> Mes evenements
-                                        </span></a>
-											</li>
-
-										</ul>
-									</li>
-								{%  endif %}
-
-								{% if is_granted('ROLE_ADMIN') %}
 									<li class="sidebar-item">
 										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
 											<i data-feather="file-text" class="feather-icon"></i>
@@ -332,11 +327,166 @@ data.forEach(function(item) => {
 										</ul>
 									</li>
 
+								<li class="sidebar-item">
+									<a class="sidebar-link has-arrow" href="javascript:void(0)"														 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+												class="hide-menu">Commande </span></a>
+									<ul aria-expanded="false" class="collapse  first-level base-level-line">
+										<li class="sidebar-item"><a href="{{ path('commande_afficheCommande') }}" class="sidebar-link"><span
+														class="hide-menu"> Afficher Commande
+                                        </span></a>
+										</li>
 
+										<li class="sidebar-item"><a href="{{ path('commande_ajoutCommande') }}"  class="sidebar-link"><span
+														class="hide-menu">Ajouter commande
+                                        </span></a>
+										</li></ul></li>
+									<li class="sidebar-item"><a href="{{ path('commande_mail') }}" class="sidebar-link"><span
+													class="hide-menu"> Contacter client
+                                        </span></a>
+									</li>
+									<li class="list-divider"></li>
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)"
+										   aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
+													class="hide-menu">Reclamation </span></a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
 
+											<li class="sidebar-item"><a href="{{ path('reclamation_index') }}" class="sidebar-link"><span
+															class="hide-menu"> Index
+                                        </span></a>
+											</li>
+											<li class="sidebar-item"><a href="{{ path('reclamation_chart') }}" class="sidebar-link"><span
+															class="hide-menu"> Statistique
+                                        </span></a>
+											</li>
+										</ul>
+									</li>
 
-								{% endif %}
-								{% if is_granted('ROLE_USER') %}
+								{% elseif is_granted('ROLE_CHEF_SITE') %}
+
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Type de vélo
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+											<li class="sidebar-item">
+												<a href="{{ path('location_type_ajout') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Ajouter un type
+													</span>
+												</a>
+											</li>
+											<li class="sidebar-item">
+												<a href="{{ path('location_type_affichage') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Liste des types
+													</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Retours
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+											<li class="sidebar-item">
+												<a href="{{ path('location_retour_affichage') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Liste des retours
+													</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+								{% elseif is_granted('ROLE_AGENT') %}
+
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Gestion Taches Agent
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+											<li class="sidebar-item">
+												<a href="{{ path('livraison_agent') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Liste des taches agent
+													</span>
+												</a>
+											</li>
+
+										</ul>
+									</li>
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="grid" class="feather-icon"></i>
+											<span class="hide-menu">Reclamation </span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+
+											<li class="sidebar-item">
+												<a href="{{ path('reclamation_index_user') }}" class="sidebar-link"><span
+															class="hide-menu">  Index
+											</span>
+												</a>
+											</li>
+											<li class="sidebar-item"><a href="{{path('reclamation_new')}}" class="sidebar-link"><span
+															class="hide-menu"> Ajouter reclamation
+												</span></a>
+											</li>
+										</ul>
+									</li>
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="grid" class="feather-icon"></i>
+											<span class="hide-menu">Reclamation </span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+
+											<li class="sidebar-item">
+												<a href="{{ path('reclamation_index_user') }}" class="sidebar-link"><span
+															class="hide-menu">  Index
+											</span>
+												</a>
+											</li>
+											<li class="sidebar-item"><a href="{{path('reclamation_new')}}" class="sidebar-link"><span
+															class="hide-menu"> Ajouter reclamation
+												</span></a>
+											</li>
+										</ul>
+									</li>
+								{% elseif is_granted('ROLE_USER') %}
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Gestion evenement
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+											<li class="sidebar-item">
+												<a href="{{ path('evenements_affiche') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Liste des evenements
+													</span>
+												</a>
+											</li>
+											<li class="sidebar-item"><a href="{{ path('affiche_parts') }}" class="sidebar-link"><span
+															class="hide-menu"> Mes evenements
+                                        </span></a>
+											</li>
+
+										</ul>
+									</li>
 									<li class="sidebar-item">
 										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
 											<i data-feather="file-text" class="feather-icon"></i>
@@ -362,91 +512,80 @@ data.forEach(function(item) => {
 
 										</ul>
 									</li>
-								{%  endif %}
 
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)"														 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+													class="hide-menu">Commande </span></a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
 
-								<li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-															 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
-												class="hide-menu">Commande </span></a>
-									<ul aria-expanded="false" class="collapse  first-level base-level-line">
-										{% if is_granted('ROLE_ADMIN') %}
-
-											<li class="sidebar-item"><a href="{{ path('commande_afficheCommande') }}" class="sidebar-link"><span
-															class="hide-menu"> Afficher Commande
-                                        </span></a>
-											</li>
-
-											<li class="sidebar-item"><a href="{{ path('commande_ajoutCommande') }}"  class="sidebar-link"><span
-															class="hide-menu">Ajouter commande
-                                        </span></a>
-											</li>
-
-										{% elseif  is_granted('ROLE_USER') %}
-
-
-											<li class="sidebar-item"><a href="{{ path('commande_affichebyclient') }}" class="sidebar-link"><span
-															class="hide-menu"> Afficher Commande
-                                        </span></a>
-											</li>
-
-
-										{% endif %}
-
-									</ul>
-								</li>
-
-								{% if is_granted('ROLE_ADMIN') %}
-
-									<li class="sidebar-item"><a href="{{ path('commande_mail') }}" class="sidebar-link"><span
-													class="hide-menu"> Contacter client
+									<li class="sidebar-item"><a href="{{ path('commande_affichebyclient') }}" class="sidebar-link"><span
+													class="hide-menu"> Afficher Commande
                                         </span></a>
 									</li>
-									<li class="list-divider"></li>
+							</ul>
+							</li>
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="grid" class="feather-icon"></i>
+											<span class="hide-menu">Reclamation </span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
 
-								{% elseif  is_granted('ROLE_USER') %}
-									<li class="list-divider"></li>
-								{% endif %}
-
-
-								<li class="list-divider"></li>
-								 {% if is_granted('ROLE_ADMIN') %}
-								<li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-															 aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
-												class="hide-menu">Reclamation </span></a>
-									<ul aria-expanded="false" class="collapse  first-level base-level-line">
-
-											<li class="sidebar-item"><a href="{{ path('reclamation_index') }}" class="sidebar-link"><span
-															class="hide-menu"> Index
-                                        </span></a>
-											</li>
-											<li class="sidebar-item"><a href="{{ path('reclamation_chart') }}" class="sidebar-link"><span
-															class="hide-menu"> Statistique
-                                        </span></a>
-											</li>
-									</ul>
-										{% elseif  is_granted('ROLE_USER') or is_granted('ROLE_CLIENT') or is_granted('ROLE_AGENT') %}
-								<li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
-															 aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
-												class="hide-menu">Reclamation </span></a>
-									<ul aria-expanded="false" class="collapse  first-level base-level-line">
-
-
-
-									<li class="sidebar-item"><a href="{{ path('reclamation_index_user') }}" class="sidebar-link"><span
+											<li class="sidebar-item">
+												<a href="{{ path('reclamation_index_user') }}" class="sidebar-link"><span
 															class="hide-menu">  Index
-                                        </span></a>
+											</span>
+												</a>
 											</li>
 											<li class="sidebar-item"><a href="{{path('reclamation_new')}}" class="sidebar-link"><span
 															class="hide-menu"> Ajouter reclamation
-                                        </span></a>
+												</span></a>
 											</li>
 										</ul>
-										{% endif %}
+									</li>
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="grid" class="feather-icon"></i>
+											<span class="hide-menu">Reclamation </span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
 
+											<li class="sidebar-item">
+												<a href="{{ path('reclamation_index_user') }}" class="sidebar-link"><span
+															class="hide-menu">  Index
+											</span>
+												</a>
+											</li>
+											<li class="sidebar-item"><a href="{{path('reclamation_new')}}" class="sidebar-link"><span
+															class="hide-menu"> Ajouter reclamation
+												</span></a>
+											</li>
+										</ul>
+									</li>
+									{% block navbarUser %}
+									{% endblock %}
+
+								{% elseif is_granted('ROLE_CLIENT')%}
+									<li class="sidebar-item">
+									<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+										<i data-feather="grid" class="feather-icon"></i>
+										<span class="hide-menu">Reclamation </span>
+									</a>
+									<ul aria-expanded="false" class="collapse  first-level base-level-line">
+
+										<li class="sidebar-item">
+											<a href="{{ path('reclamation_index_user') }}" class="sidebar-link"><span
+																class="hide-menu">  Index
+											</span>
+											</a>
+										</li>
+										<li class="sidebar-item"><a href="{{path('reclamation_new')}}" class="sidebar-link"><span
+																class="hide-menu"> Ajouter reclamation
+												</span></a>
+												</li>
+									</ul>
 								</li>
-
-							</ul>
-						</li>
+								 {% endif %}
 
 
 

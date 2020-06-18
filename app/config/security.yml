@@ -6,6 +6,7 @@ security:
        ROLE_CLIENT:        ROLE_USER
        ROLE_AGENT:       ROLE_USER
        ROLE_USER:       ROLE_USER
+       ROLE_CHEF_SITE:       ROLE_CHEF_SITE
        ROLE_ADMIN:       ROLE_ADMIN
        ROLE_SUPER_ADMIN: [ROLE_ADMIN,ROLE_ALLOWED_TO_SWITCH]
 

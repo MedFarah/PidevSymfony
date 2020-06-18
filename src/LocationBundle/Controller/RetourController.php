@@ -12,10 +12,12 @@ class RetourController extends Controller
 {
     public function affichageRetourAction(Request $request){
 
-        $numsite = $this->getUser()->getnumerosite();
+        $iduser = $this->getUser()->getId();
+
+        $numsite = $this->getDoctrine()->getManager()->getRepository("LocationBundle:User")->find($iduser)->getnumerosite();
         $query = $this->getDoctrine()->getManager()
             ->createQuery(
-                'SELECT dl.id, dl.dateFin, u.nom, u.prenom FROM LocationBundle:DetailLocation dl join LocationBundle:User u WITH dl.id_user = u.id WHERE dl.id_site = :numsite and dl.status = :status '
+                'SELECT dl.id, dl.dateFin, u.nom FROM LocationBundle:DetailLocation dl join LocationBundle:User u WITH dl.id_user = u.id WHERE dl.id_site = :numsite and dl.status = :status '
             )->setParameter('numsite', $numsite)->setParameter('status', "en cours");
         $location = $query->getResult();
 
@@ -50,9 +52,8 @@ class RetourController extends Controller
                 $nb = $nb."</ul>";
             }
 
-            $nomChefSite =$this->getUser()->getNom();
-            $prenomChefSite = $this->getUser()->getPrenom();
-            $signature = "<hr> $nomChefSite $prenomChefSite<br> Chef Site Easy Ride";
+            $nomChefSite =$this->getUser()->getNomComplet();
+            $signature = "<hr> $nomChefSite <br> Chef Site Easy Ride";
 
             $iduser = $location->getIdUser();
             $user = $em->getRepository('LocationBundle:User')->find($iduser);
