@@ -1,0 +1,73 @@
+maintenance_homepage:
+    path:     /
+    defaults: { _controller: MaintenanceBundle:Default:index }
+
+maintenance_client_index:
+    path:     /index/{critere}
+    defaults: { _controller: MaintenanceBundle:maintenance:index , critere: none}
+
+maintenance_client_new:
+    path:     /new
+    defaults: { _controller: MaintenanceBundle:maintenance:new }
+
+maintenance_client_edit:
+    path:     /edit/{id}
+    defaults: { _controller: MaintenanceBundle:maintenance:edit }
+
+maintenance_client_delete:
+    path:     /delete/{id}
+    defaults: { _controller: MaintenanceBundle:maintenance:delete }
+
+maintenance_client_confirmer:
+    path:     /valider
+    defaults: { _controller: MaintenanceBundle:maintenance:validerRDV }
+
+maintenance_client_accepter:
+    path:     /accept/{id}
+    defaults: { _controller: MaintenanceBundle:maintenance:acceptRDV }
+
+maintenance_client_refuser:
+    path:     /refuse/{id}
+    defaults: { _controller: MaintenanceBundle:maintenance:refuseRDV }
+
+########################################################################################################################
+maintenance_admin_index:
+    path:     /admin/index/{critere}
+    defaults: { _controller: MaintenanceBundle:maintenance:indexadmin , critere: none}
+
+maintenance_admin_valider:
+    path:     /admin/valider
+    defaults: { _controller: MaintenanceBundle:maintenance:validerRDVadmin }
+
+maintenance_admin_accept:
+    path:     /admin/accept/{id}
+    defaults: { _controller: MaintenanceBundle:maintenance:acceptRDVadmin }
+
+maintenance_admin_reject:
+    path:     /admin/refuse/{id}
+    defaults: { _controller: MaintenanceBundle:maintenance:refuseRDVadmin }
+########################################################################################################################
+maintenance_mobile_login:
+    path:     /loginMobile/{username}/{password}
+    defaults: { _controller: MaintenanceBundle:ApiMobile:loginMobile }
+
+maintenance_mobile_index:
+    path:     /mobile/getrdv/{id}
+    defaults: { _controller: MaintenanceBundle:ApiMobile:getrdv }
+
+maintenance_mobile_add:
+    path:     /mobile/add/{id}/{titre}/{description}/{date}
+    defaults: { _controller: MaintenanceBundle:ApiMobile:add }
+
+maintenance_mobile_delete:
+    path:     /mobile/delete/{id}
+    defaults: { _controller: MaintenanceBundle:ApiMobile:delete }
+
+maintenance_mobile_accept:
+    path:     /mobile/accept/{id}
+    defaults: { _controller: MaintenanceBundle:ApiMobile:accept }
+
+maintenance_mobile_checkEnCours:
+    path:     /mobile/getrdvencours/{id}
+    defaults: { _controller: MaintenanceBundle:ApiMobile:getrdvencours }
+

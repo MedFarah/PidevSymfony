@@ -1,0 +1,72 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    {% if maintenances is empty %}
+    <center>
+        <img src="{{ asset("assets/image_velo_location/Bike-maintenance.jpg") }}">
+        <p><h2>Aucun rendez vous à valider</h2></p>
+    </center>
+    {% else %}
+        <div class="card">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-4">
+                        <h4 class="card-title">Liste des rendez-vous à valider</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table no-wrap v-middle mb-0">
+                            <tr>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Id</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Client</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Titre</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Description</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Date rdv</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Accept</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Refuse</th>
+                            </tr>
+                            {% for maintenance in maintenances %}
+                                {% set form = formObject.createView %}
+                                <tr>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{{ maintenance.id }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{{ maintenance.nom }} {{ maintenance.prenom }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{{ maintenance.titre }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14">{{ maintenance.description }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{% if maintenance.dateRDV %}{{ maintenance.dateRDV|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">
+                                        <a class="btn btn-success text-white rounded-circle btn-circle font-20" href="{{ path('maintenance_admin_accept', { 'id': maintenance.id }) }}">+</a>
+                                    </td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">
+                                        <div id="buttonname">
+                                            <button class="btn btn-danger text-white rounded-circle btn-circle font-20" onclick="show()">+</button>
+                                        </div>
+
+                                        <div id="aaa" style="display: none">
+                                            {{ form_start(form) }}
+                                            {{ form_widget(form.date.date, {'attr': {'type': 'date'}}) }}
+                                            {{ form_widget(form.date.time, {'attr': {'type': 'time'}}) }}
+                                            {{ form_widget(form.id, {'attr' : { 'value': maintenance.id }}) }}
+                                            <input type="submit" value="+" class="btn btn-danger text-white rounded-circle btn-circle font-20" />
+                                            {{ form_end(form) }}
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    {% endif %}
+
+    <script>
+        function show(){
+            var x = document.getElementById("aaa");
+            var x1 = document.getElementById("buttonname");
+            x.style.display = "block";
+            x1.style.display = "none";
+        }
+    </script>
+{% endblock %}

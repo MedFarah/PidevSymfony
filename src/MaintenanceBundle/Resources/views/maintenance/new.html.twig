@@ -1,0 +1,43 @@
+{% extends 'baseback.html.twig' %}
+
+{% block roleuser %}
+    {% if (RDVaconfirmer is empty) %}
+    {% else %}
+        <li class="sidebar-item selected">
+            <a class="sidebar-link sidebar-link" href="{{ path('maintenance_client_confirmer') }}" aria-expanded="false">
+                <i data-feather="lock" class="feather-icon"></i>
+                <span class="hide-menu">Confirmer changement rendez vous
+											</span>
+            </a>
+        </li>
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-body">
+        <div class="card-title">
+            <h1>Maintenance creation</h1>
+        </div>
+
+            {{ form_start(form) }}
+            <label>{{ form_errors(form.dateRDV) }}</label>
+            <div class="form-group row align-items-center">
+                <label class="col-3">Titre</label>
+                {{ form_widget(form.titre, {'attr': {'class': 'form-control col'}}) }}
+            </div>
+            <div class="form-group row align-items-center">
+                <label class="col-3">Description</label>
+                {{ form_widget(form.description, {'attr': {'class': 'form-control col'}}) }}
+            </div>
+            <div class="form-group row align-items-center">
+                <label class="col-3">Date du rendez-vous</label>
+                {{ form_widget(form.dateRDV.date, {'attr': {'type': 'date'}}) }}
+                {{ form_widget(form.dateRDV.time, {'attr': {'type': 'time'}}) }}
+            </div>
+            <input type="submit" value="Create" class="btn btn-primary" />
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

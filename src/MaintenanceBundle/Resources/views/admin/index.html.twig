@@ -1,0 +1,64 @@
+{% extends 'baseback.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card-body">
+                    <h2 class="card-title">Liste des rendez-vous</h2>
+                    <div class="d-flex align-items-center mb-4">
+
+                        <h6 class="card-title">Trier par:
+                            <a href="{{ path('maintenance_admin_index', { 'critere': "date_desc" }) }}">Plus recent</a> /
+                            <a href="{{ path('maintenance_admin_index', { 'critere': "date" }) }}">Plus ancient</a> /
+                            <a href="{{ path('maintenance_admin_index', { 'critere': "titre" }) }}">titre</a> /
+                            <a href="{{ path('maintenance_admin_index', { 'critere': "etat" }) }}">etat</a></h6>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table no-wrap v-middle mb-0">
+                            <tr>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Id</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Client</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Titre</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Description</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Date rdv</th>
+                                <th class="border-0 font-14 font-weight-medium text-muted text-center">Etat</th>
+                            </tr>
+                            {% for maintenance in maintenances %}
+                                <tr>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{{ maintenance.id }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{{ maintenance.nom }} {{ maintenance.prenom }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{{ maintenance.titre }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{{ maintenance.titre }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14">{{ maintenance.description }}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center">{% if maintenance.dateRDV %}{{ maintenance.dateRDV|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td class="border-top-0 text-muted px-2 py-4 font-14 text-center" >
+                                        {% if maintenance.etat == 'confirmé' %}
+                                            <p style="color:green;">
+                                        {% elseif maintenance.etat == 'en attente' %}
+                                            <p style="color:red;">
+                                        {% else %}
+                                            <p style="color:blue;">
+                                        {% endif %}
+                                            {{ maintenance.etat }}</p>
+                                        
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

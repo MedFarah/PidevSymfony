@@ -1,0 +1,18 @@
+{% extends 'baseback.html.twig' %}
+{% block roleuser %}
+    {% if app.user %}
+    {% if (RDVaconfirmer is empty) %}
+    {% else %}
+        <li class="sidebar-item selected">
+            <a class="sidebar-link sidebar-link" href="{{ path('maintenance_client_confirmer') }}" aria-expanded="false">
+                <i data-feather="lock" class="feather-icon"></i>
+                <span class="hide-menu">Confirmer changement rendez vous
+											</span>
+            </a>
+        </li>
+    {% endif %}
+    {% endif %}
+{% endblock %}
+{% block body %}
+Welcome to Easy Ride
+{% endblock %}
