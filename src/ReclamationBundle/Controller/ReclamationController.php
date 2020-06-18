@@ -340,6 +340,7 @@ class ReclamationController extends Controller
                 'html5' => true,
                 'data_class' => null,
                 // adds a class that can be selected in JavaScript
+                //data class must add !!!
                 'attr' => ['class' => 'js-datepicker'],))
             ->add('typereclamation', ChoiceType::class, array(
                 'label' => 'Type Reclamation ',

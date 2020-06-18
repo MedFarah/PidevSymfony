@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f458048f-f8eb-4c45-96f0-fac6a3b88094" name="Default Changelist" comment="&quot;wiem part index&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_22_03_2020_18_41_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_22_03_2020_18_41_c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_22_03_2020_18_41_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_22_03_2020_18_41_s.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Controller/ReclamationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Entity/Reclamation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReclamationBundle/Repository/ReclamationRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
