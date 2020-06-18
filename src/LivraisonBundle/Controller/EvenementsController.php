@@ -8,6 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+
 
 /**
  * Evenement controller.
@@ -88,7 +93,7 @@ class EvenementsController extends Controller
     /**
      * Finds and displays a evenement entity.
      *
-     * @Route("/{id}", name="evenements_show")
+     * @Route("show/{id}", name="evenements_show")
      * @Method("GET")
      */
     public function showAction(Evenements $evenement)
@@ -172,13 +177,46 @@ class EvenementsController extends Controller
     public function AddeventAction($id)
     {
         $part=new participants();
-
+        $thisUser = $this->getUser()->getId();
         $em=$this->getDoctrine()->getManager();
-        $evenement=$em->getRepository(evenements::class)->find($id);// recuperation du evenements
+
+        $evenement=$em->getRepository(evenements::class)->find($id);
+
+        $isParticipant = $em->getRepository(participants::class)->findOneBy([ 'iduser' => $thisUser, 'idEvenements' => $evenement  ]);
+
+        if($isParticipant){
+            //$this->addFlash('error', "Already participated");
+            $serializer = new Serializer([new ObjectNormalizer()]);
+            $formatted = $serializer->normalize("Exist");
+            return new JsonResponse($formatted);
+            //return $this->redirectToRoute('evenements_affiche');
+        }
+
+        /*$user=$em->getRepository(users::class)->find($id);*/// recuperation du evenements
         $part->setIdEvenements($evenement);
+        $part->setIdUser($thisUser);
         $em->persist($part);
         $em->flush();
-        $this->addFlash('success', "part ajouter avec succes!");
-        return $this->redirectToRoute('evenements_affiche');
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize("Created");
+        return new JsonResponse($formatted);
+        /*$this->addFlash('success', "part ajouter avec succes!");
+        return $this->redirectToRoute('evenements_affiche');*/
+    }
+
+    /**
+     * Lists all evenement entities.
+     * @Route("/affiche_parts", name="affiche_parts")
+     * @Method({"GET"})
+     *
+     */
+    public function affichePartAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $evenements = $em->getRepository(participants::class)->findBy([ 'iduser' =>$this->getUser()->getId()]);
+        return $this->render('@Livraison/evenements/event1.html.twig', array(
+            'evenements' => $evenements,
+        ));
     }
 }

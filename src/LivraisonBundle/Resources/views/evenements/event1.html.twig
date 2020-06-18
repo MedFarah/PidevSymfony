@@ -1,0 +1,64 @@
+
+{% extends 'baseback.html.twig' %}
+
+
+{% block content %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js" integrity="sha256-2RS1U6UNZdLS0Bc9z2vsvV4yLIbJNKxyA4mrx5uossk=" crossorigin="anonymous"></script>
+    <div class="cy_event_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="cy_heading">Mes evenements</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                {% for evenement in evenements %}
+
+                    <div class="col-lg-4 col-md-6" id="row{{ evenement.id }}">
+                        <div class="">
+                            <div class="cy_event_box">
+                                <div class="cy_event_detail">
+                                    <div class="cy_event_time">
+                                        <ul style="list-style: none">
+                                            <h2><a href="event_single.html">{{ evenement.idEvenements.nomevenements }}</a></h2>
+
+                                            <li><i><img src="{{ asset('assetsfront/images/svg/clock.svg') }}" alt="event time"></i>{{ evenement.idEvenements.datedebut|date('h:m') }} PM to {{ evenement.idEvenements.datefin|date('h:m') }} PM</li>
+                                            <li><i><img src="{{ asset('assetsfront/images/svg/map.svg') }}" alt="event address"></i>{{ evenement.idEvenements.lieuxeve }}</li>
+                                        </ul>
+                                    </div>
+                                    <div class="card-title">
+                                        <img src="{{ asset("velo/"~evenement.idEvenements.image)}}" style="width: 300px;height: 250px">
+                                    </div>
+                                    <div class="cy_event_date">
+                                        <span class="ev_yr">{{ evenement.idEvenements.dateeve|date('Y-m-d') }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="cy_event_data">
+                                    <p>{{ evenement.idEvenements.descreptioneve }}</p>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                {% endfor %}
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
