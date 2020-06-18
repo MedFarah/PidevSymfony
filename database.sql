@@ -276,6 +276,90 @@ INSERT INTO `produit` (`id`, `nom`, `description`, `couleur`, `prix`, `prixt`, `
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE IF NOT EXISTS `type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `type`
+--
+
+INSERT INTO `type` (`id`, `type`, `image`) VALUES
+(13, 'pro', 'dbb9cd4ab151dfb21fef5723ed0e487d.jpeg'),
+(14, 'amateur', 'dbb9cd4ab151dfb21fef5723ed0e487d.jpeg'),
+(15, 'velo new', '3e05424670107ab9b4886cff74c125ba.png');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `site`
+--
+
+DROP TABLE IF EXISTS `site`;
+CREATE TABLE IF NOT EXISTS `site` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `emplacement` varchar(255) NOT NULL,
+  `longitude` double NOT NULL,
+  `latitude` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `site`
+--
+
+INSERT INTO `site` (`id`, `emplacement`, `longitude`, `latitude`) VALUES
+(2, 'manouba', 10.077333, 36.802717),
+(3, 'tunis', 10.0772765, 36.8199504),
+(4, 'ghazela', 10.1756576, 36.8890018);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `retours`
+--
+
+DROP TABLE IF EXISTS `retours`;
+CREATE TABLE IF NOT EXISTS `retours` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_location` int(11) DEFAULT NULL,
+  `etat` tinyint(1) NOT NULL,
+  `retard` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_location` (`id_location`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `detail_location`
+--
+
+DROP TABLE IF EXISTS `detail_location`;
+CREATE TABLE IF NOT EXISTS `detail_location` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `id_type` int(11) DEFAULT NULL,
+  `id_site` int(11) DEFAULT NULL,
+  `date_debut` date NOT NULL,
+  `date_fin` date NOT NULL,
+  `status` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_type` (`id_type`),
+  KEY `id_site` (`id_site`),
+  KEY `id_user` (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `reclamation`
 --
 
@@ -334,6 +418,24 @@ CREATE TABLE IF NOT EXISTS `reclamations` (
   KEY `IDX_1CAD6B768E54FB25` (`livraison_id`),
   KEY `IDX_1CAD6B763414710B` (`agent_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `detail_location`
+--
+ALTER TABLE `detail_location`
+  ADD CONSTRAINT `FK_A84060106B3CA4B` FOREIGN KEY (`id_user`) REFERENCES `fos_user` (`id`),
+  ADD CONSTRAINT `FK_A84060107FE4B2B` FOREIGN KEY (`id_type`) REFERENCES `type` (`id`),
+  ADD CONSTRAINT `FK_A8406010E26315E6` FOREIGN KEY (`id_site`) REFERENCES `site` (`id`);
+
+--
+-- Contraintes pour la table `retours`
+--
+ALTER TABLE `retours`
+  ADD CONSTRAINT `FK_578AB086E45655E` FOREIGN KEY (`id_location`) REFERENCES `detail_location` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
