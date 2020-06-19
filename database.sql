@@ -187,6 +187,25 @@ INSERT INTO `livraison` (`titre`, `etat`, `adresse`, `prix`, `tel`, `dateCreatio
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `maintenance`
+--
+
+DROP TABLE IF EXISTS `maintenance`;
+CREATE TABLE IF NOT EXISTS `maintenance` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `titre` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `dateRDV` datetime NOT NULL,
+  `etat` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_2F84F8E958B2AE57` (`dateRDV`),
+  KEY `id_user` (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `notification`
 --
 
@@ -431,6 +450,12 @@ ALTER TABLE `detail_location`
   ADD CONSTRAINT `FK_A84060106B3CA4B` FOREIGN KEY (`id_user`) REFERENCES `fos_user` (`id`),
   ADD CONSTRAINT `FK_A84060107FE4B2B` FOREIGN KEY (`id_type`) REFERENCES `type` (`id`),
   ADD CONSTRAINT `FK_A8406010E26315E6` FOREIGN KEY (`id_site`) REFERENCES `site` (`id`);
+
+--
+-- Contraintes pour la table `maintenance`
+--
+ALTER TABLE `maintenance`
+  ADD CONSTRAINT `FK_2F84F8E96B3CA4B` FOREIGN KEY (`id_user`) REFERENCES `fos_user` (`id`);
 
 --
 -- Contraintes pour la table `retours`
