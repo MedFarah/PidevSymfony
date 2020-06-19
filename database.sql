@@ -129,6 +129,7 @@ CREATE TABLE IF NOT EXISTS `fos_user` (
   `tel` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `dateCreation` datetime NOT NULL,
   `nomComplet` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `numero_site` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
   UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`),
