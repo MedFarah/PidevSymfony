@@ -36,9 +36,12 @@ class maintenanceController extends Controller
             'SELECT m FROM MaintenanceBundle:maintenance m WHERE m.etat = :etat and m.id_user= :id'
         )->setParameter('etat', $etat)->setParameter('id', $this->getUser()->getid())->getResult();
 
+        $userid = $this->getUser()->getId();
+
         return $this->render('@Maintenance/maintenance/index.html.twig', array(
             'maintenances' => $maintenances,
-            'RDVaconfirmer' => $RDVaconfirmer
+            'RDVaconfirmer' => $RDVaconfirmer,
+            'userid' => $userid,
         ));
     }
 
@@ -60,7 +63,8 @@ class maintenanceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $maintenance->setEtat("en attente");
-            $maintenance->setIdUser($this->getUser());
+            $user = $em->getRepository("MaintenanceBundle:User")->find($this->getUser()->getId());
+            $maintenance->setIdUser($user);
             $em->persist($maintenance);
             $em->flush();
 
@@ -176,7 +180,7 @@ class maintenanceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $req = 'SELECT m.id, m.titre, m.description, m.dateRDV, m.etat, u.nom, u.prenom FROM MaintenanceBundle:maintenance m join MaintenanceBundle:User u WITH m.id_user = u.id ';
+        $req = 'SELECT m.id, m.titre, m.description, m.dateRDV, m.etat, u.nom FROM MaintenanceBundle:maintenance m join MaintenanceBundle:User u WITH m.id_user = u.id ';
         if ($critere != "none") {
             switch ($critere) {
                 case "date":
@@ -206,7 +210,7 @@ class maintenanceController extends Controller
         $etat = "en attente";
         $maintenances = $this->getDoctrine()->getManager()
             ->createQuery(
-                'SELECT m.id,m.titre, m.description, m.dateRDV, u.nom, u.prenom FROM MaintenanceBundle:maintenance m join MaintenanceBundle:User u WITH m.id_user = u.id WHERE m.etat =:etat order by m.dateRDV '
+                'SELECT m.id,m.titre, m.description, m.dateRDV, u.nom FROM MaintenanceBundle:maintenance m join MaintenanceBundle:User u WITH m.id_user = u.id WHERE m.etat =:etat order by m.dateRDV '
             )->setParameter('etat', $etat)
             ->getResult();
 
@@ -225,15 +229,14 @@ class maintenanceController extends Controller
             $iduser = $maintenance->getIdUser();
             $user = $em->getRepository('MaintenanceBundle:User')->find($iduser);
             $nomuser = $user->getNom();
-            $prenomuser = $user->getPrenom();
-            $nomadmin = $this->getUser()->getNom();
-            $prenomadmin = $this->getUser()->getPrenom();
-            $signature = "<hr>  $nomadmin $prenomadmin<br> Admin Easy Ride";
+
+            $nomadmin = $this->getUser()->getNomComplet();
+            $signature = "<hr>  $nomadmin <br> Admin Easy Ride";
             $message = \Swift_Message::newInstance()
                 ->setSubject('Rendez-vous à revalider')
                 ->setFrom(array('easyride@gmail.com' => 'Easy Ride'))
                 ->setTo($user->getEmail())
-                ->setBody("<h4>Bonjour $nomuser $prenomuser,</h4><br><p>Le rendez vous à la date $daterdv à $heurerdv n'est pas disponible, une autre proposition vous a été envoyé, merci de vous rendre sur votre compte vous la valider</p>".$signature, 'text/html');
+                ->setBody("<h4>Bonjour $nomuser ,</h4><br><p>Le rendez vous à la date $daterdv à $heurerdv n'est pas disponible, une autre proposition vous a été envoyé, merci de vous rendre sur votre compte vous la valider</p>".$signature, 'text/html');
             $this->get('mailer')->send($message);
 
 
@@ -255,15 +258,13 @@ class maintenanceController extends Controller
         $iduser = $maintenance->getIdUser();
         $user = $em->getRepository('MaintenanceBundle:User')->find($iduser);
         $nomuser = $user->getNom();
-        $prenomuser = $user->getPrenom();
-        $nomadmin = $this->getUser()->getNom();
-        $prenomadmin = $this->getUser()->getPrenom();
-        $signature = "<hr>  $nomadmin $prenomadmin<br> Admin Easy Ride";
+        $nomadmin = $this->getUser()->getNomComplet();
+        $signature = "<hr>  $nomadmin <br> Admin Easy Ride";
         $message = \Swift_Message::newInstance()
             ->setSubject('Rendez-vous confirmé')
             ->setFrom(array('easyride@gmail.com' => 'Easy Ride'))
             ->setTo($user->getEmail())
-            ->setBody("<h4>Bonjour $nomuser $prenomuser,</h4><br><p>Le rendez vous à la date $daterdv à $heurerdv a été confirmé avec succes</p>".$signature, 'text/html');
+            ->setBody("<h4>Bonjour $nomuser ,</h4><br><p>Le rendez vous à la date $daterdv à $heurerdv a été confirmé avec succes</p>".$signature, 'text/html');
         $this->get('mailer')->send($message);
 
         return $this->redirectToRoute('maintenance_admin_index');

@@ -274,6 +274,33 @@ data.forEach(function(item) => {
 											</li>
 										</ul>
 									</li>
+
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="file-text" class="feather-icon"></i>
+											<span class="hide-menu">
+												Gestion maintenance
+											</span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+											<li class="sidebar-item">
+												<a href="{{ path('maintenance_admin_index') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Afficher rendez-vous
+													</span>
+												</a>
+											</li>
+
+											<li class="sidebar-item">
+												<a href="{{ path('maintenance_admin_valider') }}" class="sidebar-link">
+													<span class="hide-menu">
+														Valider rdv
+													</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
 									<li class="sidebar-item">
 										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
 											<i data-feather="file-text" class="feather-icon"></i>
@@ -564,6 +591,27 @@ data.forEach(function(item) => {
 									</li>
 									{% block navbarUser %}
 									{% endblock %}
+									<li class="sidebar-item">
+										<a class="sidebar-link has-arrow" href="javascript:void(0)" aria-expanded="false">
+											<i data-feather="grid" class="feather-icon"></i>
+											<span class="hide-menu">Prendre un rdv </span>
+										</a>
+										<ul aria-expanded="false" class="collapse  first-level base-level-line">
+
+											<li class="sidebar-item">
+												<a href="{{ path('maintenance_client_index') }}" class="sidebar-link"><span
+															class="hide-menu">  Afficher mes rendez-vous
+											</span>
+												</a>
+											</li>
+											<li class="sidebar-item"><a href="{{path('maintenance_client_new')}}" class="sidebar-link"><span
+															class="hide-menu"> Prendre un rendez-vous
+												</span></a>
+											</li>
+										</ul>
+									</li>
+                                    {% block roleuser %}
+                                    {% endblock %}
 
 								{% elseif is_granted('ROLE_CLIENT')%}
 									<li class="sidebar-item">
