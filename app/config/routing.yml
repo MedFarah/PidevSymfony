@@ -1,6 +1,6 @@
 maintenance:
     resource: "@MaintenanceBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /maintenance
     
 location:
     resource: "@LocationBundle/Resources/config/routing.yml"
