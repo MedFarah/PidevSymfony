@@ -70,7 +70,7 @@ location_homepage:
 #******************************************************
 #####MOBILE#################
 locationmobile_login:
-    path:     /loginMobile/{username}/{password}
+    path:     /mobilelogin/{username}/{password}
     defaults: { _controller: LocationBundle:ApiMobile:loginMobile }
 
 locationmobile_getimage:
@@ -94,7 +94,7 @@ locationmobile_chefsitevaliderlocation:
     defaults: { _controller: LocationBundle:ApiMobile:validerlocation }
 
 locationmobile_deletelocation:
-    path:     /mobile/delete/{id}
+    path:     /mobile/deletelocation/{id}
     defaults: { _controller: LocationBundle:ApiMobile:deletelocation }
 
 locationmobile_addlocation:

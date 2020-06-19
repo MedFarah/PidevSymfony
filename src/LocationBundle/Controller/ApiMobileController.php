@@ -146,18 +146,16 @@ class ApiMobileController extends Controller
             ->setParameter('idsite', $location->getIdSite())->getResult();
         //$chefsite = $em->getRepository("LocationBundle:User")->find($location->getIdSite());
         $nomchefsite = $chefsite[0]->getNom();
-        $prenomchefsite = $chefsite[0]->getPrenom();
-        $signature = "<hr> $nomchefsite $prenomchefsite<br> Chef Site Easy Ride";
+        $signature = "<hr> $nomchefsite <br> Chef Site Easy Ride";
 
         $user = $em->getRepository("LocationBundle:User")->find($location->getIdUser());
         $nom = $user->getNom();
-        $prenom = $user->getPrenom();
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Retour de vélo confirmé')
             ->setFrom(array('easyride@gmail.com' => 'Easy Ride'))
             ->setTo($user->getEmail())
-            ->setBody("<h1>Bonjour $nom $prenom,</h1><br><p>Le velo a été retournée avec succes</p>".$signature, 'text/html');
+            ->setBody("<h1>Bonjour $nom ,</h1><br><p>Le velo a été retournée avec succes</p>".$signature, 'text/html');
         $this->get('mailer')->send($message);
 
 
